@@ -1,0 +1,416 @@
+/* ════════════════════════════════════════
+   Page header
+════════════════════════════════════════ */
+.projects__header {
+  background-color: var(--blue);
+  padding: 5rem 2.5rem 3.5rem;
+}
+
+.projects__header-inner { max-width: 1100px; margin: 0 auto; }
+
+.projects__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,240,231,0.65);
+  margin-bottom: 0.6rem;
+}
+
+.projects__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  text-transform: uppercase;
+  color: var(--beige);
+  margin-bottom: 0.75rem;
+}
+
+.projects__subtitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: rgba(245,240,231,0.65);
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* ════════════════════════════════════════
+   Section containers
+════════════════════════════════════════ */
+.proj-section {
+  background-color: var(--beige);
+  padding: 5rem 0;
+}
+
+.proj-section--alt {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.proj-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ════════════════════════════════════════
+   Film Poster cards
+════════════════════════════════════════ */
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.poster-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.poster-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 10px 32px rgba(41,52,145,0.15);
+}
+
+/* Portrait aspect ratio wrapper — maintains 2:3 movie poster proportions */
+.poster-card__img-wrap {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: var(--dark, #111);
+}
+
+.poster-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.poster-card:hover .poster-card__img {
+  transform: scale(1.03);
+}
+
+.poster-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.poster-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.poster-card__year {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.poster-card__role-badge {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--beige);
+  background-color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.poster-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-top: 0.15rem;
+  line-height: 1.1;
+}
+
+.poster-card__desc {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--text-sec);
+  line-height: 1.65;
+}
+
+.poster-card__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.poster-card__tool {
+  font-family: var(--font-sans);
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: var(--beige);
+  background-color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* ════════════════════════════════════════
+   Volunteer UCF expandable card
+════════════════════════════════════════ */
+.ucf-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-top: 2rem;
+}
+
+/* The always-visible clickable header */
+.ucf-card__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.25rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ucf-card__btn:hover { background-color: var(--beige); }
+
+.ucf-card__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+/* Instagram-gradient avatar ring */
+.ucf-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--card-bg), 0 0 0 5px #ee2a7b44;
+}
+
+.ucf-card__brand-copy { min-width: 0; }
+
+.ucf-card__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 0.2rem;
+}
+
+.ucf-card__meta {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.ucf-card__desc-text {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--text-sec);
+  line-height: 1.6;
+}
+
+.ucf-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.ucf-card__handle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* View Posts pill button */
+.ucf-card__pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ucf-card__btn:hover .ucf-card__pill {
+  background-color: var(--blue);
+  color: var(--beige);
+}
+
+.ucf-card__chevron {
+  display: inline-block;
+  font-size: 0.65rem;
+}
+
+/* ════════════════════════════════════════
+   Instagram posts grid (expanded)
+════════════════════════════════════════ */
+.ucf-posts-inner {
+  padding: 1.75rem 2.25rem 2.25rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--beige);
+}
+
+.ucf-posts-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.ucf-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Wrapper that constrains each Instagram embed */
+.ig-embed-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* Override Instagram's default blockquote sizing to fill the column */
+.ig-embed-wrap .instagram-media {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* ════════════════════════════════════════
+   Photography cards
+════════════════════════════════════════ */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.photo-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.photo-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 10px 32px rgba(41,52,145,0.14);
+}
+
+/* 2 × 2 photo placeholder grid */
+.photo-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background-color: var(--border);
+}
+
+.photo-cell {
+  aspect-ratio: 1 / 1;
+  background-color: var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.photo-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.photo-card__year {
+  font-family: var(--font-sans);
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.photo-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.photo-card__desc {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--text-sec);
+  line-height: 1.65;
+}
+
+/* ════════════════════════════════════════
+   Responsive
+════════════════════════════════════════ */
+@media (max-width: 700px) {
+  .ucf-posts-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .poster-grid  { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .ucf-card__btn   { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .ucf-card__right { align-items: flex-start; }
+  .ucf-posts-inner { padding: 1.25rem; }
+}
+
+@media (max-width: 500px) {
+  .poster-grid { grid-template-columns: 1fr; }
+  .photo-grid  { grid-template-columns: 1fr; }
+}
