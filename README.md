@@ -2,7 +2,7 @@
 
 A personal portfolio website built with React, showcasing film poster design, social media marketing, and photography work.
 
-**Live site:** *(deploy URL goes here)*
+**Live site:** https://dainty-nougat-12ed9a.netlify.app
 
 ---
 

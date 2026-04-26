@@ -54,22 +54,52 @@ const instagramPosts = [
 
 const photoCollections = [
   {
-    id: 'denial',
-    title: 'Denial — BTS',
+    id: 'binos-bts',
+    title: "Binos — BTS",
     year: 2025,
-    desc: 'Behind-the-scenes photography capturing candid moments of cast and crew during the Denial short film production.',
+    desc: "Behind-the-scenes photography capturing candid moments of cast and crew during the Bino's short film production.",
+    photos: [
+      '/images/photography/binos-1.jpg',
+      '/images/photography/binos-2.jpg',
+      '/images/photography/binos-3.jpg',
+      '/images/photography/binos-4.jpg',
+    ],
   },
   {
-    id: 'first-car',
-    title: 'In My First Car — Premiere',
-    year: 2023,
-    desc: "Event photography from the premiere of In My First Car, documenting the evening's celebration and screening.",
+    id: 'bat-mitzvah',
+    title: 'Bat Mitzvah 2025',
+    year: 2025,
+    desc: 'Event photography documenting the celebration, ceremony, and memorable moments throughout the evening.',
+    photos: [
+      '/images/photography/bat-mitzvah-1.jpg',
+      '/images/photography/bat-mitzvah-2.jpg',
+      '/images/photography/bat-mitzvah-3.jpg',
+      '/images/photography/bat-mitzvah-4.jpg',
+    ],
   },
   {
     id: 'professional',
     title: 'Professional Sessions',
     year: 2025,
     desc: 'Portrait and lifestyle photography sessions, including individual and pet portrait shoots at outdoor and urban locations.',
+    photos: [
+      '/images/photography/professional-1.jpg',
+      '/images/photography/professional-2.jpg',
+      '/images/photography/professional-3.jpg',
+      '/images/photography/professional-4.jpg',
+    ],
+  },
+  {
+    id: 'vucf-events',
+    title: 'VUCF Large Scale Events',
+    year: 2025,
+    desc: 'Photography coverage of large-scale Volunteer UCF events, documenting volunteers, impact, and community engagement across Central Florida.',
+    photos: [
+      '/images/photography/vucf-events-1.jpg',
+      '/images/photography/vucf-events-2.jpg',
+      '/images/photography/vucf-events-3.jpg',
+      '/images/photography/vucf-events-4.jpg',
+    ],
   },
 ];
 
@@ -209,9 +239,9 @@ function PhotoCard({ collection }) {
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
     >
       <div className="photo-card__grid">
-        {Array.from({ length: 4 }).map((_, i) => (
+        {collection.photos.map((src, i) => (
           <div key={i} className="photo-cell">
-            <span>📷</span>
+            <img src={src} alt="" className="photo-cell__img" />
           </div>
         ))}
       </div>
