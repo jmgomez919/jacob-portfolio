@@ -52,6 +52,36 @@ const instagramPosts = [
   { id: 6, href: 'https://www.instagram.com/p/DN3ocgvXBxU/', label: 'Pegasus Palooza 2025'            },
 ];
 
+const websiteProjects = [
+  {
+    id: 'literary-movie-review',
+    title: 'Literary Movie Review',
+    year: 2025,
+    desc: 'A React application for browsing and reviewing films, featuring a curated collection of movie critiques and literary analysis.',
+    tools: ['React', 'JavaScript', 'CSS'],
+    href: 'https://myliterary-movie-review.netlify.app',
+    accent: '#1a1a2e',
+  },
+  {
+    id: 'capri-italian',
+    title: 'Capri Italian',
+    year: 2025,
+    desc: 'A restaurant website for Capri Italian, showcasing the menu, ambiance, and online presence for an authentic dining experience.',
+    tools: ['React', 'JavaScript', 'CSS'],
+    href: 'https://capriitalian.netlify.app',
+    accent: '#2c4a1e',
+  },
+  {
+    id: 'quickroute',
+    title: 'QuickRoute',
+    year: 2025,
+    desc: 'A React application for planning and optimizing travel routes, helping users map out efficient paths between multiple destinations.',
+    tools: ['React', 'JavaScript', 'CSS'],
+    href: 'https://quickroute-jg.netlify.app',
+    accent: '#1e3a5f',
+  },
+];
+
 const photoCollections = [
   {
     id: 'binos-bts',
@@ -231,6 +261,41 @@ function UCFCard({ expanded, onToggle }) {
   );
 }
 
+function WebsiteCard({ site }) {
+  return (
+    <motion.article
+      className="website-card"
+      variants={cardItem}
+      whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+    >
+      <div className="website-card__preview" style={{ backgroundColor: site.accent }}>
+        <span className="website-card__preview-label">{site.title}</span>
+        <a
+          href={site.href}
+          className="website-card__visit-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={e => e.stopPropagation()}
+        >
+          Visit Site ↗
+        </a>
+      </div>
+
+      <div className="website-card__body">
+        <div className="website-card__row">
+          <span className="website-card__year">{site.year}</span>
+          <span className="website-card__badge">React App</span>
+        </div>
+        <h3 className="website-card__title">{site.title}</h3>
+        <p className="website-card__desc">{site.desc}</p>
+        <ul className="website-card__tools">
+          {site.tools.map(t => <li key={t} className="website-card__tool">{t}</li>)}
+        </ul>
+      </div>
+    </motion.article>
+  );
+}
+
 function PhotoCard({ collection }) {
   return (
     <motion.article
@@ -327,6 +392,33 @@ export default function Projects() {
             expanded={ucfExpanded}
             onToggle={() => setUcfExpanded(e => !e)}
           />
+        </div>
+      </section>
+
+      {/* ── Websites ── */}
+      <section className="proj-section proj-section--alt">
+        <div className="proj-section__inner">
+          <motion.h2
+            className="section-heading"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            Websites
+          </motion.h2>
+
+          <motion.div
+            className="website-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            {websiteProjects.map(site => (
+              <WebsiteCard key={site.id} site={site} />
+            ))}
+          </motion.div>
         </div>
       </section>
 

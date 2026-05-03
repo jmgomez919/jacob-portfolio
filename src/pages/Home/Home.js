@@ -6,13 +6,6 @@ import {
 } from '../../utils/animations';
 import './Home.css';
 
-const highlights = [
-  { img: '/images/movies-beige-on-blue.jpg',    label: 'Film',      count: '8+',   desc: 'Productions'  },
-  { img: '/images/marketing-beige-on-blue.jpg', label: 'Marketing', count: '150+', desc: 'Curated Posts' },
-  { img: '/images/camera-beige-on-blue.jpg',    label: 'Events',    count: '5',    desc: 'Photographed'  },
-  { img: '/images/internet-beige-on-blue.jpg',  label: 'Websites',  count: '3',    desc: 'Published'     },
-];
-
 const services = [
   { icon: '🎬', title: 'Film & Posters',  desc: 'Movie poster design and BTS photography for student and indie productions.' },
   { icon: '🎨', title: 'Graphic Design',  desc: 'Logos, brand identities, and print materials since 2015.' },
@@ -70,32 +63,6 @@ export default function Home() {
           />
         </motion.div>
       </section>
-
-      {/* ── Stats strip ── */}
-      <motion.section
-        className="home__stats"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={viewportOnce}
-        transition={{ duration: 0.5 }}
-      >
-        {highlights.map(({ img, label, count, desc }, i) => (
-          <motion.div
-            key={label}
-            className="home__stat"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOnce}
-            transition={{ delay: i * 0.08, duration: 0.45 }}
-          >
-            <img src={img} alt="" className="home__stat-icon" aria-hidden="true" />
-            <div>
-              <strong className="home__stat-count">{count}</strong>
-              <span className="home__stat-label">{label} {desc}</span>
-            </div>
-          </motion.div>
-        ))}
-      </motion.section>
 
       {/* ── Welcome ── */}
       <section className="home__welcome container">

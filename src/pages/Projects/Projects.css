@@ -323,6 +323,140 @@
 }
 
 /* ════════════════════════════════════════
+   Website cards
+════════════════════════════════════════ */
+.website-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.website-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.website-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 10px 32px rgba(41,52,145,0.15);
+}
+
+.website-card__preview {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.website-card__preview-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  text-transform: uppercase;
+  color: rgba(245,240,231,0.9);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+.website-card__visit-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid rgba(245,240,231,0.6);
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245,240,231,0.85);
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.website-card__visit-btn:hover {
+  background-color: rgba(245,240,231,0.15);
+  border-color: rgba(245,240,231,0.9);
+  color: #fff;
+}
+
+.website-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.website-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.website-card__year {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.website-card__badge {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--beige);
+  background-color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.website-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-top: 0.15rem;
+  line-height: 1.1;
+}
+
+.website-card__desc {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--text-sec);
+  line-height: 1.65;
+}
+
+.website-card__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.website-card__tool {
+  font-family: var(--font-sans);
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: var(--beige);
+  background-color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* ════════════════════════════════════════
    Photography cards
 ════════════════════════════════════════ */
 .photo-grid {
@@ -408,9 +542,17 @@
   .ucf-posts-grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 900px) {
+  .website-grid  { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
-  .poster-grid  { grid-template-columns: repeat(2, 1fr); }
-  .photo-grid   { grid-template-columns: repeat(2, 1fr); }
+  .poster-grid   { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid    { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .website-grid  { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
