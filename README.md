@@ -1,6 +1,6 @@
 # Jacob Gomez — Digital Portfolio
 
-A personal portfolio website built with React, showcasing film poster design, social media marketing, and photography work.
+A personal portfolio website built with React, showcasing graphic design, film poster work, social media marketing, photography, and web projects.
 
 **Live site:** https://dainty-nougat-12ed9a.netlify.app
 
@@ -10,18 +10,22 @@ A personal portfolio website built with React, showcasing film poster design, so
 
 | Page | Description |
 |---|---|
-| **Home** | Hero, stats strip, welcome section, and services overview |
+| **Home** | Hero section with CTA buttons and services overview |
 | **About** | Bio, skills & tools, interests, and experience timeline |
-| **Projects** | Film posters, Volunteer UCF Instagram showcase, and photography collections |
+| **Projects** | Film posters, Volunteer UCF Instagram showcase, website projects, and photography collections |
 | **Contact** | Contact form and social links |
 
 ## Tech Stack
 
 - [React](https://react.dev/) (Create React App)
-- [React Router v6](https://reactrouter.com/)
+- [React Router v7](https://reactrouter.com/)
 - [Framer Motion](https://www.framer-motion.com/) — page transitions and scroll animations
 - CSS custom properties for design tokens (colors, fonts, spacing)
 - Custom fonts: TAN-BUSTER (display), Source Serif Pro (body)
+
+## Static Fallback
+
+A fully styled `<noscript>` fallback is included in `public/index.html`. Visitors with JavaScript disabled will see a readable HTML page with bio, skills, and contact info.
 
 ## Getting Started
 
@@ -32,13 +36,14 @@ npm start
 
 Runs the app at [http://localhost:3000](http://localhost:3000).
 
-## Build
+## Build & Deploy
 
 ```bash
 npm run build
+netlify deploy --prod --dir=build
 ```
 
-Outputs a production build to the `build/` folder.
+Outputs a production build to the `build/` folder and deploys to Netlify.
 
 ## Project Structure
 
@@ -51,6 +56,7 @@ src/
   components/
     Navbar/
     Footer/
+    ProjectCard/
   pages/
     Home/
     About/
@@ -59,6 +65,7 @@ src/
   utils/
     animations.js # Shared Framer Motion variants
   data/
+    projects.js
     skills.js
 ```
 
