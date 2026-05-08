@@ -49,58 +49,212 @@
       <style>
         *{box-sizing:border-box;margin:0;padding:0}
         body{font-family:Georgia,serif;background:#F5F0E7;color:#111;line-height:1.7}
-        .ns-wrap{max-width:760px;margin:0 auto;padding:3rem 1.5rem}
-        .ns-eyebrow{font-family:'Arial Black',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#293491;margin-bottom:.5rem}
-        .ns-name{font-family:'Arial Black',sans-serif;font-size:3rem;text-transform:uppercase;line-height:1;margin-bottom:.25rem}
-        .ns-name span{color:#293491}
-        .ns-role{font-size:1rem;color:#555;margin-bottom:2rem}
+        /* Nav */
+        .ns-nav{background:#293491;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;position:sticky;top:0;z-index:10}
+        .ns-nav-brand{font-family:'Arial Black',sans-serif;font-size:1.1rem;text-transform:uppercase;color:#F5F0E7;text-decoration:none;letter-spacing:.05em}
+        .ns-nav-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+        .ns-nav-links a{color:#F5F0E7;font-family:Arial,sans-serif;font-size:.82rem;font-weight:700;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+        .ns-nav-links a:hover{opacity:1}
+        /* Sections */
+        .ns-section{padding:3.5rem 1.5rem;max-width:860px;margin:0 auto}
+        .ns-section--alt{background:#fff;max-width:100%;padding:3.5rem 1.5rem}
+        .ns-section--alt .ns-section-inner{max-width:860px;margin:0 auto}
+        .ns-section--dark{background:#293491;max-width:100%;padding:3.5rem 1.5rem}
+        .ns-section--dark .ns-section-inner{max-width:860px;margin:0 auto}
+        /* Hero */
+        .ns-eyebrow{font-family:Arial,sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#293491;margin-bottom:.5rem}
+        .ns-hero-name{font-family:'Arial Black',sans-serif;font-size:clamp(2.5rem,8vw,4.5rem);text-transform:uppercase;line-height:1;margin-bottom:.25rem}
+        .ns-hero-name span{color:#293491}
+        .ns-tagline{font-size:1.1rem;font-style:italic;color:#293491;margin-bottom:1rem}
+        .ns-hero-sub{font-size:.95rem;color:#444;max-width:560px;margin-bottom:1.75rem}
+        .ns-btn{display:inline-block;padding:.65rem 1.4rem;border-radius:4px;font-family:Arial,sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;margin-right:.6rem;margin-bottom:.5rem}
+        .ns-btn--primary{background:#293491;color:#F5F0E7}
+        .ns-btn--outline{border:2px solid #293491;color:#293491}
+        /* Headings */
+        .ns-h2{font-family:'Arial Black',sans-serif;font-size:1.5rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1.25rem;color:#111}
+        .ns-h2--light{color:#F5F0E7}
+        hr.ns-rule{border:none;border-top:1px solid #ddd;margin:3rem 0}
+        /* Services grid */
+        .ns-services{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+        .ns-service{background:#fff;border:1px solid #e0dbd0;border-radius:8px;padding:1.25rem}
+        .ns-service-icon{font-size:1.5rem;margin-bottom:.4rem;display:block}
+        .ns-service h3{font-family:'Arial Black',sans-serif;font-size:.85rem;text-transform:uppercase;margin-bottom:.3rem;color:#293491}
+        .ns-service p{font-size:.83rem;color:#555;line-height:1.55}
+        /* About */
         .ns-bio p{margin-bottom:1rem;font-size:.97rem;color:#333}
-        hr{border:none;border-top:1px solid #ccc;margin:2rem 0}
-        h2{font-family:'Arial Black',sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.1em;color:#293491;margin-bottom:.75rem}
-        .ns-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
-        .ns-skill{background:#293491;color:#F5F0E7;font-family:Arial,sans-serif;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:3px}
-        .ns-links a{display:inline-block;margin-right:1.5rem;color:#293491;font-family:Arial,sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;border-bottom:2px solid #293491}
-        .ns-note{margin-top:2.5rem;font-family:Arial,sans-serif;font-size:.8rem;color:#777}
+        .ns-skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.25rem;margin-top:1rem}
+        .ns-skill-group h3{font-family:Arial,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#293491;margin-bottom:.5rem}
+        .ns-skill-list{list-style:none;padding:0}
+        .ns-skill-list li{font-size:.88rem;color:#444;padding:.15rem 0;padding-left:.9rem;position:relative}
+        .ns-skill-list li::before{content:'';position:absolute;left:0;top:.6rem;width:5px;height:5px;background:#293491;border-radius:50%}
+        /* Projects */
+        .ns-cat-label{font-family:Arial,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F5F0E7;background:#293491;padding:2px 9px;border-radius:20px;display:inline-block;margin-bottom:1.25rem}
+        .ns-proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-bottom:2.5rem}
+        .ns-proj-card{background:#F5F0E7;border:1px solid #d8d3c8;border-radius:8px;padding:1.25rem}
+        .ns-proj-card h3{font-family:'Arial Black',sans-serif;font-size:.95rem;text-transform:uppercase;color:#293491;margin-bottom:.2rem}
+        .ns-proj-meta{font-family:Arial,sans-serif;font-size:.72rem;color:#888;margin-bottom:.5rem}
+        .ns-proj-desc{font-size:.85rem;color:#444;line-height:1.6;margin-bottom:.6rem}
+        .ns-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+        .ns-tag{font-family:Arial,sans-serif;font-size:.65rem;font-weight:700;background:#293491;color:#F5F0E7;padding:2px 7px;border-radius:3px}
+        .ns-proj-link{display:inline-block;margin-top:.5rem;font-family:Arial,sans-serif;font-size:.78rem;font-weight:700;color:#293491;text-decoration:none;border-bottom:1px solid #293491}
+        /* Contact */
+        .ns-contact-list{list-style:none;padding:0;margin-top:1rem}
+        .ns-contact-list li{margin-bottom:.75rem;font-family:Arial,sans-serif;font-size:.95rem}
+        .ns-contact-list a{color:#F5F0E7;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(245,240,231,.4)}
+        .ns-contact-list span{color:rgba(245,240,231,.6);margin-right:.5rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+        /* Footer */
+        .ns-footer{text-align:center;padding:1.5rem;font-family:Arial,sans-serif;font-size:.75rem;color:#888;background:#F5F0E7;border-top:1px solid #ddd}
       </style>
-      <div class="ns-wrap">
+
+      <nav class="ns-nav">
+        <a class="ns-nav-brand" href="#home">JG919</a>
+        <div class="ns-nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <!-- HOME -->
+      <section id="home" class="ns-section">
         <p class="ns-eyebrow">Digital Portfolio</p>
-        <h1 class="ns-name">Jacob <span>Gomez</span></h1>
-        <p class="ns-role">Graphic Designer &middot; Photographer &middot; Film Collaborator &mdash; Orlando, FL</p>
-
-        <div class="ns-bio">
-          <p>Born in New Jersey and raised in Florida, I'm a creative professional with a passion for graphic design, visual storytelling, and documenting meaningful moments.</p>
-          <p>I earned an Associate degree in Digital Film &amp; Television Production from Seminole State College and a Bachelor's degree in Digital Media from the University of Central Florida, with a specialization in Web Development. At UCF, I served as Marketing Director for VolunteerUCF, leading creative initiatives and managing the social media accounts for one of the university's largest student organizations.</p>
-          <p>I'm driven by challenging work, an adventurous mindset, and creating things that leave a lasting impression.</p>
+        <h1 class="ns-hero-name">Jacob<br/><span>Gomez</span></h1>
+        <p class="ns-tagline">Making content that is <em>seen</em></p>
+        <p class="ns-hero-sub">With dedication, I strive to create media that captures attention and resonates with a wide and diverse audience. Through years of experience in graphic design, internships, and photography, I've developed a skill set focused on producing content that is both visually compelling and widely seen.</p>
+        <div>
+          <a class="ns-btn ns-btn--primary" href="#projects">View My Work</a>
+          <a class="ns-btn ns-btn--outline" href="#about">Learn More About Me</a>
+          <a class="ns-btn ns-btn--outline" href="#contact">Contact Info</a>
         </div>
 
-        <hr />
+        <hr class="ns-rule"/>
 
-        <h2>Skills &amp; Tools</h2>
-        <div class="ns-skills">
-          <span class="ns-skill">Adobe Photoshop</span>
-          <span class="ns-skill">Adobe Illustrator</span>
-          <span class="ns-skill">Adobe InDesign</span>
-          <span class="ns-skill">Adobe Premiere Pro</span>
-          <span class="ns-skill">Adobe After Effects</span>
-          <span class="ns-skill">Lightroom</span>
-          <span class="ns-skill">Figma</span>
-          <span class="ns-skill">HTML &amp; CSS</span>
-          <span class="ns-skill">JavaScript</span>
-          <span class="ns-skill">React</span>
-          <span class="ns-skill">WordPress</span>
-          <span class="ns-skill">Photography</span>
+        <h2 class="ns-h2">What I Do</h2>
+        <div class="ns-services">
+          <div class="ns-service"><span class="ns-service-icon">🎬</span><h3>Film &amp; Posters</h3><p>Movie poster design and BTS photography for student and indie productions.</p></div>
+          <div class="ns-service"><span class="ns-service-icon">🎨</span><h3>Graphic Design</h3><p>Logos, brand identities, and print materials since 2015.</p></div>
+          <div class="ns-service"><span class="ns-service-icon">📷</span><h3>Photography</h3><p>Portraits, events, and behind-the-scenes production coverage.</p></div>
+          <div class="ns-service"><span class="ns-service-icon">📣</span><h3>Marketing</h3><p>Social media content creation and campaign management for Volunteer UCF.</p></div>
+          <div class="ns-service"><span class="ns-service-icon">📱</span><h3>App Concepts</h3><p>UX/UI design and prototyping in Figma for mobile applications.</p></div>
+          <div class="ns-service"><span class="ns-service-icon">🌐</span><h3>Web Design</h3><p>WordPress and HTML/CSS sites for clients and personal projects.</p></div>
         </div>
+      </section>
 
-        <hr />
+      <!-- ABOUT -->
+      <div class="ns-section--alt">
+        <section id="about" class="ns-section-inner">
+          <h2 class="ns-h2">About Me</h2>
+          <div class="ns-bio">
+            <p>Born in New Jersey and raised in Florida, I'm a creative professional with a passion for graphic design, visual storytelling, and documenting meaningful moments. From an early age I developed a love for drawing across different mediums&hellip;a passion that naturally grew into a broader interest in visual communication. I'm also the oldest of four siblings. Family is a big part of who I am.</p>
+            <p>I earned an Associate degree in Digital Film &amp; Television Production from Seminole State College and a Bachelor's degree in Digital Media from the University of Central Florida, with a specialization in Web Development. At UCF, I served as Marketing Director for VolunteerUCF, leading creative initiatives and managing the social media accounts for one of the university's largest student organizations.</p>
+            <p>I'm driven by challenging work, an adventurous mindset, and creating things that leave a lasting impression.</p>
+          </div>
 
-        <h2>Contact</h2>
-        <div class="ns-links">
-          <a href="mailto:j.mgomez919@gmail.com">j.mgomez919@gmail.com</a>
-          <a href="https://github.com/jmgomez919">GitHub</a>
-        </div>
+          <hr class="ns-rule"/>
 
-        <p class="ns-note">This site requires JavaScript. Please enable it in your browser settings to view the full interactive portfolio.</p>
+          <h2 class="ns-h2">Skills &amp; Tools</h2>
+          <div class="ns-skills-grid">
+            <div class="ns-skill-group">
+              <h3>Design &amp; Illustration</h3>
+              <ul class="ns-skill-list">
+                <li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Figma</li><li>Blender (3D/Rendering)</li>
+              </ul>
+            </div>
+            <div class="ns-skill-group">
+              <h3>Web Development</h3>
+              <ul class="ns-skill-list">
+                <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>WordPress / DIVI</li>
+              </ul>
+            </div>
+            <div class="ns-skill-group">
+              <h3>Film &amp; Media</h3>
+              <ul class="ns-skill-list">
+                <li>BTS Photography</li><li>Graphic Design for Film</li><li>Assistant Direction</li><li>Movie Poster Design</li>
+              </ul>
+            </div>
+            <div class="ns-skill-group">
+              <h3>Photography</h3>
+              <ul class="ns-skill-list">
+                <li>Portrait Photography</li><li>Event Photography</li><li>Lifestyle Photography</li><li>Photo Editing</li>
+              </ul>
+            </div>
+            <div class="ns-skill-group">
+              <h3>Marketing &amp; Content</h3>
+              <ul class="ns-skill-list">
+                <li>Social Media Management</li><li>Content Creation</li><li>Event Recaps</li><li>Brand Identity</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="ns-section">
+        <h2 class="ns-h2">Projects</h2>
+
+        <span class="ns-cat-label">Film</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>Bino's</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Movie poster created using Photoshop for a hand-drawn aesthetic, with Blender used to render lighting effects so all characters and scenery were lit properly.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span><span class="ns-tag">Blender</span></div></div>
+          <div class="ns-proj-card"><h3>Chimera</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Using a gradient tool in Photoshop, I added a stylized effect to the film credits and crafted a personalized movie rating for this production.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>Television Tension</h3><p class="ns-proj-meta">2024 &middot; Graphic Design</p><p class="ns-proj-desc">Using Blender, I arranged a stack of CRT-TV models and rendered screenshots from the film to create an image that reflects the tone of the story.</p><div class="ns-tags"><span class="ns-tag">Blender</span></div></div>
+          <div class="ns-proj-card"><h3>In My First Car</h3><p class="ns-proj-meta">2023 &middot; Assistant Director</p><p class="ns-proj-desc">Served as Assistant Director for this student short film production, coordinating on-set logistics and supporting the director's vision.</p></div>
+          <div class="ns-proj-card"><h3>Project 365</h3><p class="ns-proj-meta">2024 &middot; BTS</p><p class="ns-proj-desc">Behind-the-scenes documentation and photography for the Project 365 film production.</p><div class="ns-tags"><span class="ns-tag">Photography</span></div></div>
+          <div class="ns-proj-card"><h3>I ❤ Jennifer</h3><p class="ns-proj-meta">2024 &middot; Graphic Design</p><p class="ns-proj-desc">Graphic design work for the film I ❤ Jennifer, including promotional materials.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>Intourettgetation</h3><p class="ns-proj-meta">2024 &middot; BTS</p><p class="ns-proj-desc">Behind-the-scenes photography and documentation for the Intourettgetation film production.</p><div class="ns-tags"><span class="ns-tag">Photography</span></div></div>
+          <div class="ns-proj-card"><h3>Denial</h3><p class="ns-proj-meta">2025 &middot; BTS</p><p class="ns-proj-desc">Behind-the-scenes photography coverage for the Denial (2025) short film production.</p><div class="ns-tags"><span class="ns-tag">Photography</span></div></div>
+        </div>
+
+        <span class="ns-cat-label">Marketing</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>Volunteer UCF — Marketing Director</h3><p class="ns-proj-meta">2025 &middot; Marketing Director</p><p class="ns-proj-desc">Serving as Marketing Director for Volunteer UCF's Instagram page, creating event recaps, promotional graphics, and community engagement content for volunteer events across Central Florida.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span><span class="ns-tag">Social Media</span><span class="ns-tag">Content Creation</span></div></div>
+        </div>
+
+        <span class="ns-cat-label">Photography</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>Denial BTS</h3><p class="ns-proj-meta">2025 &middot; Photographer</p><p class="ns-proj-desc">Professional behind-the-scenes photography for the short film Denial, capturing candid moments of cast and crew during production.</p></div>
+          <div class="ns-proj-card"><h3>In My First Car — Premiere</h3><p class="ns-proj-meta">2023 &middot; Photographer</p><p class="ns-proj-desc">Event photography coverage of the In My First Car film premiere, documenting the celebration and screening of the completed film.</p></div>
+          <div class="ns-proj-card"><h3>Professional Sessions</h3><p class="ns-proj-meta">2025 &middot; Photographer</p><p class="ns-proj-desc">Professional portrait and lifestyle photography sessions, including individual and pet portraits taken at various outdoor and urban locations.</p></div>
+        </div>
+
+        <span class="ns-cat-label">Graphic Design</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>Eclipse Media Logo</h3><p class="ns-proj-meta">2025 &middot; Graphic Designer</p><p class="ns-proj-desc">Logo design for Eclipse Media, featuring a bold typographic treatment with a star/eclipse motif.</p><div class="ns-tags"><span class="ns-tag">Illustrator</span><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>Mandy W. Filmz Logo</h3><p class="ns-proj-meta">2025 &middot; Graphic Designer</p><p class="ns-proj-desc">Logo design for Mandy W. Filmz production company, incorporating film reel imagery and bold typography.</p><div class="ns-tags"><span class="ns-tag">Illustrator</span><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>IMAGINE Miami 2028</h3><p class="ns-proj-meta">2015 &middot; Graphic Designer</p><p class="ns-proj-desc">Poster concept for the 2028 Summer Olympic and Paralympic Games in Miami, featuring a vibrant, multi-cultural composition.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>HighGround Commercial Investments Logo</h3><p class="ns-proj-meta">2018 &middot; Graphic Designer</p><p class="ns-proj-desc">Brand identity and logo design for HighGround Commercial Investments.</p><div class="ns-tags"><span class="ns-tag">Illustrator</span></div></div>
+          <div class="ns-proj-card"><h3>Kush Hookah Lounge Logo</h3><p class="ns-proj-meta">2016 &middot; Graphic Designer</p><p class="ns-proj-desc">Logo design for Kush Hookah Lounge Orlando, featuring a lion mascot with bold color blocking.</p><div class="ns-tags"><span class="ns-tag">Illustrator</span><span class="ns-tag">Photoshop</span></div></div>
+          <div class="ns-proj-card"><h3>Nashville Music Poster</h3><p class="ns-proj-meta">2019 &middot; Graphic Designer</p><p class="ns-proj-desc">Promotional poster design for Nashville — Music Capital of the USA, using photo collage and typography.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
+        </div>
+
+        <span class="ns-cat-label">App Concepts</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>REMI Cooking AR</h3><p class="ns-proj-meta">2025 &middot; UX/UI Designer</p><p class="ns-proj-desc">AI-powered augmented reality cooking app concept designed in Figma. REMI guides users through recipes with step-by-step AR overlays, batch-serving adjustments, and smart pantry tracking.</p><div class="ns-tags"><span class="ns-tag">Figma</span></div></div>
+          <div class="ns-proj-card"><h3>Saros</h3><p class="ns-proj-meta">2024 &middot; UX/UI Designer</p><p class="ns-proj-desc">Personal cloud storage and data organization app concept designed in Figma, with features for media, aliases, and document management.</p><div class="ns-tags"><span class="ns-tag">Figma</span></div></div>
+        </div>
+
+        <span class="ns-cat-label">Websites</span>
+        <div class="ns-proj-grid">
+          <div class="ns-proj-card"><h3>Literary Movie Review</h3><p class="ns-proj-meta">2025 &middot; Web Developer</p><p class="ns-proj-desc">A React application for browsing and reviewing films, featuring a curated collection of movie critiques and literary analysis.</p><div class="ns-tags"><span class="ns-tag">React</span><span class="ns-tag">JavaScript</span><span class="ns-tag">CSS</span></div><a class="ns-proj-link" href="https://myliterary-movie-review.netlify.app" target="_blank" rel="noopener noreferrer">Visit Site ↗</a></div>
+          <div class="ns-proj-card"><h3>Capri Italian</h3><p class="ns-proj-meta">2025 &middot; Web Developer</p><p class="ns-proj-desc">A restaurant website for Capri Italian, showcasing the menu, ambiance, and online presence for an authentic dining experience.</p><div class="ns-tags"><span class="ns-tag">React</span><span class="ns-tag">JavaScript</span><span class="ns-tag">CSS</span></div><a class="ns-proj-link" href="https://capriitalian.netlify.app" target="_blank" rel="noopener noreferrer">Visit Site ↗</a></div>
+          <div class="ns-proj-card"><h3>QuickRoute</h3><p class="ns-proj-meta">2025 &middot; Web Developer</p><p class="ns-proj-desc">A React application for planning and optimizing travel routes, helping users map out efficient paths between multiple destinations.</p><div class="ns-tags"><span class="ns-tag">React</span><span class="ns-tag">JavaScript</span><span class="ns-tag">CSS</span></div><a class="ns-proj-link" href="https://quickroute-jg.netlify.app" target="_blank" rel="noopener noreferrer">Visit Site ↗</a></div>
+          <div class="ns-proj-card"><h3>Capacity Infrastructure</h3><p class="ns-proj-meta">2025 &middot; Web Designer</p><p class="ns-proj-desc">Professional website for Capacity Infrastructure, a commercial industrial development company. Built with WordPress and the DIVI theme.</p><div class="ns-tags"><span class="ns-tag">WordPress</span><span class="ns-tag">DIVI</span></div><a class="ns-proj-link" href="https://capacityinfrastructure.com/" target="_blank" rel="noopener noreferrer">Visit Site ↗</a></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <div class="ns-section--dark">
+        <section id="contact" class="ns-section-inner" style="padding:3.5rem 1.5rem;max-width:860px;margin:0 auto">
+          <h2 class="ns-h2 ns-h2--light">Contact Info</h2>
+          <ul class="ns-contact-list">
+            <li><span>Email</span><a href="mailto:j.mgomez919@gmail.com">j.mgomez919@gmail.com</a></li>
+            <li><span>GitHub</span><a href="https://github.com/jmgomez919" target="_blank" rel="noopener noreferrer">github.com/jmgomez919</a></li>
+            <li><span>Location</span><span style="color:rgba(245,240,231,.85)">Orlando, FL</span></li>
+          </ul>
+        </section>
+      </div>
+
+      <footer class="ns-footer">&copy; 2025 Jacob Gomez &mdash; All rights reserved.</footer>
     </noscript>
     <div id="root"></div>
   </body>
