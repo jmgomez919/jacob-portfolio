@@ -102,12 +102,26 @@
         .ns-contact-list li{margin-bottom:.75rem;font-family:Arial,sans-serif;font-size:.95rem}
         .ns-contact-list a{color:#F5F0E7;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(245,240,231,.4)}
         .ns-contact-list span{color:rgba(245,240,231,.6);margin-right:.5rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+        /* Images */
+        .ns-nav-logo{height:32px;width:auto;display:block}
+        .ns-about-wrap{display:flex;gap:2.5rem;align-items:flex-start;margin-bottom:2rem}
+        .ns-profile-img{width:200px;flex-shrink:0;border-radius:8px;object-fit:cover;object-position:center top;aspect-ratio:3/4;box-shadow:0 4px 20px rgba(0,0,0,0.12);display:block}
+        .ns-poster-img{width:100%;border-radius:6px 6px 0 0;display:block;object-fit:cover;max-height:340px}
+        .ns-proj-card--poster{padding:0;overflow:hidden}
+        .ns-proj-card--poster .ns-poster-body{padding:1.25rem}
+        .ns-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:6px 6px 0 0;overflow:hidden}
+        .ns-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+        .ns-proj-card--photos{padding:0;overflow:hidden}
+        .ns-proj-card--photos .ns-photo-body{padding:1.25rem}
+        @media(max-width:600px){.ns-about-wrap{flex-direction:column}.ns-profile-img{width:100%;max-width:260px}}
         /* Footer */
         .ns-footer{text-align:center;padding:1.5rem;font-family:Arial,sans-serif;font-size:.75rem;color:#888;background:#F5F0E7;border-top:1px solid #ddd}
       </style>
 
       <nav class="ns-nav">
-        <a class="ns-nav-brand" href="#home">JG919</a>
+        <a class="ns-nav-brand" href="#home">
+          <img src="/images/logo-light.png" alt="JG919" class="ns-nav-logo"/>
+        </a>
         <div class="ns-nav-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
@@ -145,10 +159,13 @@
       <div class="ns-section--alt">
         <section id="about" class="ns-section-inner">
           <h2 class="ns-h2">About Me</h2>
-          <div class="ns-bio">
-            <p>Born in New Jersey and raised in Florida, I'm a creative professional with a passion for graphic design, visual storytelling, and documenting meaningful moments. From an early age I developed a love for drawing across different mediums&hellip;a passion that naturally grew into a broader interest in visual communication. I'm also the oldest of four siblings. Family is a big part of who I am.</p>
-            <p>I earned an Associate degree in Digital Film &amp; Television Production from Seminole State College and a Bachelor's degree in Digital Media from the University of Central Florida, with a specialization in Web Development. At UCF, I served as Marketing Director for VolunteerUCF, leading creative initiatives and managing the social media accounts for one of the university's largest student organizations.</p>
-            <p>I'm driven by challenging work, an adventurous mindset, and creating things that leave a lasting impression.</p>
+          <div class="ns-about-wrap">
+            <img src="/images/profile.jpeg" alt="Jacob Gomez" class="ns-profile-img"/>
+            <div class="ns-bio">
+              <p>Born in New Jersey and raised in Florida, I'm a creative professional with a passion for graphic design, visual storytelling, and documenting meaningful moments. From an early age I developed a love for drawing across different mediums&hellip;a passion that naturally grew into a broader interest in visual communication. I'm also the oldest of four siblings. Family is a big part of who I am.</p>
+              <p>I earned an Associate degree in Digital Film &amp; Television Production from Seminole State College and a Bachelor's degree in Digital Media from the University of Central Florida, with a specialization in Web Development. At UCF, I served as Marketing Director for VolunteerUCF, leading creative initiatives and managing the social media accounts for one of the university's largest student organizations.</p>
+              <p>I'm driven by challenging work, an adventurous mindset, and creating things that leave a lasting impression.</p>
+            </div>
           </div>
 
           <hr class="ns-rule"/>
@@ -195,9 +212,18 @@
 
         <span class="ns-cat-label">Film</span>
         <div class="ns-proj-grid">
-          <div class="ns-proj-card"><h3>Bino's</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Movie poster created using Photoshop for a hand-drawn aesthetic, with Blender used to render lighting effects so all characters and scenery were lit properly.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span><span class="ns-tag">Blender</span></div></div>
-          <div class="ns-proj-card"><h3>Chimera</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Using a gradient tool in Photoshop, I added a stylized effect to the film credits and crafted a personalized movie rating for this production.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
-          <div class="ns-proj-card"><h3>Television Tension</h3><p class="ns-proj-meta">2024 &middot; Graphic Design</p><p class="ns-proj-desc">Using Blender, I arranged a stack of CRT-TV models and rendered screenshots from the film to create an image that reflects the tone of the story.</p><div class="ns-tags"><span class="ns-tag">Blender</span></div></div>
+          <div class="ns-proj-card ns-proj-card--poster">
+            <img src="/images/poster-binos.png" alt="Bino's movie poster" class="ns-poster-img"/>
+            <div class="ns-poster-body"><h3>Bino's</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Movie poster created using Photoshop for a hand-drawn aesthetic, with Blender used to render lighting effects so all characters and scenery were lit properly.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span><span class="ns-tag">Blender</span></div></div>
+          </div>
+          <div class="ns-proj-card ns-proj-card--poster">
+            <img src="/images/poster-chimera.png" alt="Chimera movie poster" class="ns-poster-img"/>
+            <div class="ns-poster-body"><h3>Chimera</h3><p class="ns-proj-meta">2025 &middot; BTS / Graphic Design</p><p class="ns-proj-desc">Used a gradient tool in Photoshop to add a stylized effect to the film credits and craft a personalized movie rating.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
+          </div>
+          <div class="ns-proj-card ns-proj-card--poster">
+            <img src="/images/poster-television-tension.jpg" alt="Television Tension movie poster" class="ns-poster-img"/>
+            <div class="ns-poster-body"><h3>Television Tension</h3><p class="ns-proj-meta">2024 &middot; Graphic Design</p><p class="ns-proj-desc">Using Blender, arranged a stack of CRT-TV models and rendered screenshots from the film to create an image that reflects the tone of the story.</p><div class="ns-tags"><span class="ns-tag">Blender</span></div></div>
+          </div>
           <div class="ns-proj-card"><h3>In My First Car</h3><p class="ns-proj-meta">2023 &middot; Assistant Director</p><p class="ns-proj-desc">Served as Assistant Director for this student short film production, coordinating on-set logistics and supporting the director's vision.</p></div>
           <div class="ns-proj-card"><h3>Project 365</h3><p class="ns-proj-meta">2024 &middot; BTS</p><p class="ns-proj-desc">Behind-the-scenes documentation and photography for the Project 365 film production.</p><div class="ns-tags"><span class="ns-tag">Photography</span></div></div>
           <div class="ns-proj-card"><h3>I ❤ Jennifer</h3><p class="ns-proj-meta">2024 &middot; Graphic Design</p><p class="ns-proj-desc">Graphic design work for the film I ❤ Jennifer, including promotional materials.</p><div class="ns-tags"><span class="ns-tag">Photoshop</span></div></div>
@@ -212,9 +238,42 @@
 
         <span class="ns-cat-label">Photography</span>
         <div class="ns-proj-grid">
-          <div class="ns-proj-card"><h3>Denial BTS</h3><p class="ns-proj-meta">2025 &middot; Photographer</p><p class="ns-proj-desc">Professional behind-the-scenes photography for the short film Denial, capturing candid moments of cast and crew during production.</p></div>
-          <div class="ns-proj-card"><h3>In My First Car — Premiere</h3><p class="ns-proj-meta">2023 &middot; Photographer</p><p class="ns-proj-desc">Event photography coverage of the In My First Car film premiere, documenting the celebration and screening of the completed film.</p></div>
-          <div class="ns-proj-card"><h3>Professional Sessions</h3><p class="ns-proj-meta">2025 &middot; Photographer</p><p class="ns-proj-desc">Professional portrait and lifestyle photography sessions, including individual and pet portraits taken at various outdoor and urban locations.</p></div>
+          <div class="ns-proj-card ns-proj-card--photos">
+            <div class="ns-photo-grid">
+              <img src="/images/photography/binos-1.jpg" alt="Binos BTS photo 1"/>
+              <img src="/images/photography/binos-2.jpg" alt="Binos BTS photo 2"/>
+              <img src="/images/photography/binos-3.jpg" alt="Binos BTS photo 3"/>
+              <img src="/images/photography/binos-4.jpg" alt="Binos BTS photo 4"/>
+            </div>
+            <div class="ns-photo-body"><span class="ns-proj-meta">2025</span><h3 style="font-family:'Arial Black',sans-serif;font-size:.95rem;text-transform:uppercase;color:#293491;margin:.2rem 0">Binos — BTS</h3><p class="ns-proj-desc">Behind-the-scenes photography capturing candid moments of cast and crew during the Bino's short film production.</p></div>
+          </div>
+          <div class="ns-proj-card ns-proj-card--photos">
+            <div class="ns-photo-grid">
+              <img src="/images/photography/bat-mitzvah-1.jpg" alt="Bat Mitzvah photo 1"/>
+              <img src="/images/photography/bat-mitzvah-2.jpg" alt="Bat Mitzvah photo 2"/>
+              <img src="/images/photography/bat-mitzvah-3.jpg" alt="Bat Mitzvah photo 3"/>
+              <img src="/images/photography/bat-mitzvah-4.jpg" alt="Bat Mitzvah photo 4"/>
+            </div>
+            <div class="ns-photo-body"><span class="ns-proj-meta">2025</span><h3 style="font-family:'Arial Black',sans-serif;font-size:.95rem;text-transform:uppercase;color:#293491;margin:.2rem 0">Bat Mitzvah 2025</h3><p class="ns-proj-desc">Event photography documenting the celebration, ceremony, and memorable moments throughout the evening.</p></div>
+          </div>
+          <div class="ns-proj-card ns-proj-card--photos">
+            <div class="ns-photo-grid">
+              <img src="/images/photography/professional-1.jpg" alt="Professional session photo 1"/>
+              <img src="/images/photography/professional-2.jpg" alt="Professional session photo 2"/>
+              <img src="/images/photography/professional-3.jpg" alt="Professional session photo 3"/>
+              <img src="/images/photography/professional-4.jpg" alt="Professional session photo 4"/>
+            </div>
+            <div class="ns-photo-body"><span class="ns-proj-meta">2025</span><h3 style="font-family:'Arial Black',sans-serif;font-size:.95rem;text-transform:uppercase;color:#293491;margin:.2rem 0">Professional Sessions</h3><p class="ns-proj-desc">Portrait and lifestyle photography sessions, including individual and pet portrait shoots at outdoor and urban locations.</p></div>
+          </div>
+          <div class="ns-proj-card ns-proj-card--photos">
+            <div class="ns-photo-grid">
+              <img src="/images/photography/vucf-events-1.jpg" alt="VUCF events photo 1"/>
+              <img src="/images/photography/vucf-events-2.jpg" alt="VUCF events photo 2"/>
+              <img src="/images/photography/vucf-events-3.jpg" alt="VUCF events photo 3"/>
+              <img src="/images/photography/vucf-events-4.jpg" alt="VUCF events photo 4"/>
+            </div>
+            <div class="ns-photo-body"><span class="ns-proj-meta">2025</span><h3 style="font-family:'Arial Black',sans-serif;font-size:.95rem;text-transform:uppercase;color:#293491;margin:.2rem 0">VUCF Large Scale Events</h3><p class="ns-proj-desc">Photography coverage of large-scale Volunteer UCF events, documenting volunteers, impact, and community engagement across Central Florida.</p></div>
+          </div>
         </div>
 
         <span class="ns-cat-label">Graphic Design</span>
