@@ -375,7 +375,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* ── Volunteer UCF ── */}
+      {/* ── Social Media Management ── */}
       <section className="proj-section proj-section--alt">
         <div className="proj-section__inner">
           <motion.h2
@@ -385,7 +385,7 @@ export default function Projects() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            Volunteer UCF
+            Social Media Management
           </motion.h2>
 
           <UCFCard
