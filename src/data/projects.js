@@ -96,7 +96,7 @@ const projects = [
   {
     id: 9,
     category: 'Marketing',
-    title: 'Volunteer UCF — Marketing Director',
+    title: 'Social Media Management — Marketing Director',
     year: 2025,
     role: 'Marketing Director',
     description:
