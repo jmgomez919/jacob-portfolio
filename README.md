@@ -2,7 +2,7 @@
 
 A personal portfolio website built with React, showcasing graphic design, film poster work, social media marketing, photography, and web projects.
 
-**Live site:** https://dainty-nougat-12ed9a.netlify.app
+**Live site:** https://jakub919main.netlify.app/
 
 ---
 
