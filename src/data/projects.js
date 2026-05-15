@@ -96,7 +96,7 @@ const projects = [
   {
     id: 9,
     category: 'Marketing',
-    title: 'Social Media Management — Marketing Director',
+    title: 'Social Media Management',
     year: 2025,
     role: 'Marketing Director',
     description:
