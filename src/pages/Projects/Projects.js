@@ -210,11 +210,11 @@ function UCFCard({ expanded, onToggle }) {
           <div className="ucf-card__brand-copy">
             <h3 className="ucf-card__name">Social Media Management</h3>
             <p className="ucf-card__meta">
-              Marketing Director &amp; Graphic Design &nbsp;·&nbsp; 2025–Present
+              Marketing Director &amp; Graphic Design &nbsp;·&nbsp; 2025–2026
             </p>
             <p className="ucf-card__desc-text">
               Creating event recaps and promotional graphics that capture the impact of
-              volunteer work across Central Florida.
+              volunteer work across Central Florida and the United States.
             </p>
           </div>
         </div>
