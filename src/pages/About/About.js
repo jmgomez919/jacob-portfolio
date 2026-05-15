@@ -6,14 +6,6 @@ import {
 } from '../../utils/animations';
 import './About.css';
 
-const timeline = [
-  { year: '2023', event: 'Assistant Director — In My First Car (UCF short film)' },
-  { year: '2024', event: 'BTS / Graphic Design on 5+ UCF film productions' },
-  { year: '2025', event: 'Marketing Director at Volunteer UCF (present)' },
-  { year: '2025', event: "Graphic Designer — Bino's, Chimera film posters" },
-  { year: '2025', event: 'Web Design — Capacity Infrastructure (WordPress)' },
-];
-
 const interests = [
   { icon: '🎥', label: 'Filmmaking'   },
   { icon: '🎨', label: 'Illustration' },
@@ -173,38 +165,6 @@ export default function About() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
-
-      {/* ── Timeline ── */}
-      <section className="about__timeline">
-        <div className="about__timeline-inner">
-          <motion.h2
-            className="section-heading section-heading--center about__timeline-heading"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            Experience Timeline
-          </motion.h2>
-
-          <ol className="about__timeline-list">
-            {timeline.map(({ year, event }, i) => (
-              <motion.li
-                key={event}
-                className="about__timeline-item"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={viewportOnce}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <span className="about__timeline-year">{year}</span>
-                <span className="about__timeline-dot" aria-hidden="true" />
-                <p className="about__timeline-event">{event}</p>
-              </motion.li>
-            ))}
-          </ol>
-        </div>
       </section>
 
     </motion.div>
