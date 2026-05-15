@@ -66,6 +66,11 @@
   flex-wrap: wrap;
 }
 
+.home__hero-cta .btn:not(.home__hero-cta-full) {
+  flex: 1;
+  text-align: center;
+}
+
 .home__hero-cta-full {
   flex-basis: 100%;
   text-align: center;
