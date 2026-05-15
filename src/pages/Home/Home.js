@@ -47,7 +47,7 @@ export default function Home() {
           <div className="home__hero-cta">
             <Link to="/projects" className="btn btn--primary">View My Work</Link>
             <Link to="/contact"  className="btn btn--outline">Get in Touch</Link>
-            <Link to="/about"    className="btn btn--outline">Learn More About Me</Link>
+            <Link to="/about"    className="btn btn--outline home__hero-cta-full">Learn More About Me</Link>
           </div>
         </motion.div>
 
