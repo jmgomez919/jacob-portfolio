@@ -98,44 +98,6 @@
   .home__hero { min-height: auto; padding: 3.5rem 1.25rem; }
 }
 
-/* ── Welcome ── */
-.home__welcome {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 5rem;
-  align-items: center;
-}
-
-.home__welcome-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
-
-.home__welcome-text p {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  color: var(--text-sec);
-  line-height: 1.75;
-}
-
-.home__welcome-btn { margin-top: 0.5rem; align-self: flex-start; }
-
-.home__profile-img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 8px;
-  display: block;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 768px) {
-  .home__welcome { grid-template-columns: 1fr; gap: 2.5rem; }
-  .home__welcome-visual { max-width: 240px; margin: 0 auto; }
-}
-
 /* ── What I Do ── */
 .home__services {
   background-color: var(--card-bg);

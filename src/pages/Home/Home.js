@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   pageVariants, fadeUp, staggerContainer,
-  slideInLeft, slideInRight, viewportOnce,
+  slideInLeft, viewportOnce,
 } from '../../utils/animations';
 import './Home.css';
 
@@ -47,6 +47,7 @@ export default function Home() {
           <div className="home__hero-cta">
             <Link to="/projects" className="btn btn--primary">View My Work</Link>
             <Link to="/contact"  className="btn btn--outline">Get in Touch</Link>
+            <Link to="/about"    className="btn btn--outline">Learn More About Me</Link>
           </div>
         </motion.div>
 
@@ -60,44 +61,6 @@ export default function Home() {
             src="/images/logo-dark.png"
             alt="JG919 logo"
             className="home__hero-logo"
-          />
-        </motion.div>
-      </section>
-
-      {/* ── Welcome ── */}
-      <section className="home__welcome container">
-        <motion.div
-          className="home__welcome-text"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-        >
-          <h2 className="section-heading">Welcome</h2>
-          <p>
-            I am a graduate of the University of Central Florida, holding a Bachelor's degree
-            in Digital Media, with several years of experience in photography, videography,
-            graphic design, and other creative disciplines. From an early age, I developed a
-            passion for drawing across a variety of mediums, which naturally evolved into a
-            broader interest in visual storytelling. I enjoy capturing and documenting moments
-            through photography, preserving experiences that can be reflected on for years to
-            come. With an adventurous mindset, I'm always seeking new challenges and
-            opportunities to grow creatively and professionally.
-          </p>
-          <Link to="/about" className="btn btn--primary home__welcome-btn">Learn More About Me</Link>
-        </motion.div>
-
-        <motion.div
-          className="home__welcome-visual"
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-        >
-          <img
-            src="/images/profile.jpeg"
-            alt="Jacob Gomez"
-            className="home__profile-img"
           />
         </motion.div>
       </section>
