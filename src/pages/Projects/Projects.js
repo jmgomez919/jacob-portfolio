@@ -205,7 +205,7 @@ function UCFCard({ expanded, onToggle }) {
       >
         <div className="ucf-card__brand">
           <div className="ucf-card__avatar" aria-hidden="true">
-            <span>📣</span>
+            <img src="/images/volunteerucf_logo.jpg" alt="Volunteer UCF" className="ucf-card__avatar-img" />
           </div>
           <div className="ucf-card__brand-copy">
             <h3 className="ucf-card__name">Volunteer UCF</h3>
