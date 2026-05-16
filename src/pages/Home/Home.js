@@ -7,12 +7,10 @@ import {
 import './Home.css';
 
 const services = [
-  { icon: '🎬', title: 'Film & Posters',  desc: 'Movie poster design and BTS photography for student and indie productions.' },
-  { icon: '🎨', title: 'Graphic Design',  desc: 'Logos, brand identities, and print materials since 2015.' },
-  { icon: '📷', title: 'Photography',     desc: 'Portraits, events, and behind-the-scenes production coverage.' },
-  { icon: '📣', title: 'Marketing',       desc: 'Social media content creation and campaign management for Volunteer UCF.' },
-  { icon: '📱', title: 'App Concepts',    desc: 'UX/UI design and prototyping in Figma for mobile applications.' },
-  { icon: '🌐', title: 'Web Design',      desc: 'WordPress and HTML/CSS sites for clients and personal projects.' },
+  { img: '/images/what-i-do/graphic-design.png',   title: 'Graphic Design',    desc: 'Logos, brand identities, and print materials crafted since 2015.' },
+  { img: '/images/what-i-do/photography.png',       title: 'Photography',       desc: 'Portraits, events, and behind-the-scenes production coverage.' },
+  { img: '/images/what-i-do/photo-journalism.png',  title: 'Photo-Journalism',  desc: 'Documenting real moments and stories through compelling visual narratives.' },
+  { img: '/images/what-i-do/web-design.png',        title: 'Web Design',        desc: 'WordPress and React sites built for clients and personal projects.' },
 ];
 
 export default function Home() {
@@ -85,14 +83,16 @@ export default function Home() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            {services.map(({ icon, title, desc }) => (
+            {services.map(({ img, title, desc }) => (
               <motion.div
                 key={title}
                 className="home__service-card"
                 variants={fadeUp}
                 whileHover={{ y: -4, transition: { type: 'spring', stiffness: 320, damping: 20 } }}
               >
-                <span className="home__service-icon">{icon}</span>
+                <div className="home__service-img-wrap">
+                  <img src={img} alt={title} className="home__service-img" />
+                </div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
               </motion.div>
