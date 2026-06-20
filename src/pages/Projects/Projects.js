@@ -88,48 +88,28 @@ const photoCollections = [
     title: "Binos — BTS",
     year: 2025,
     desc: "Behind-the-scenes photography capturing candid moments of cast and crew during the Bino's short film production.",
-    photos: [
-      '/images/photography/binos-1.jpg',
-      '/images/photography/binos-2.jpg',
-      '/images/photography/binos-3.jpg',
-      '/images/photography/binos-4.jpg',
-    ],
+    photos: [null, null, null, null, null],
   },
   {
     id: 'bat-mitzvah',
     title: 'Bat Mitzvah 2025',
     year: 2025,
     desc: 'Event photography documenting the celebration, ceremony, and memorable moments throughout the evening.',
-    photos: [
-      '/images/photography/bat-mitzvah-1.jpg',
-      '/images/photography/bat-mitzvah-2.jpg',
-      '/images/photography/bat-mitzvah-3.jpg',
-      '/images/photography/bat-mitzvah-4.jpg',
-    ],
+    photos: [null, null, null, null, null],
   },
   {
     id: 'professional',
     title: 'Professional Sessions',
     year: 2025,
     desc: 'Portrait and lifestyle photography sessions, including individual and pet portrait shoots at outdoor and urban locations.',
-    photos: [
-      '/images/photography/professional-1.jpg',
-      '/images/photography/professional-2.jpg',
-      '/images/photography/professional-3.jpg',
-      '/images/photography/professional-4.jpg',
-    ],
+    photos: [null, null, null, null, null],
   },
   {
     id: 'vucf-events',
     title: 'VUCF Large Scale Events',
     year: 2025,
     desc: 'Photography coverage of large-scale Volunteer UCF events, documenting volunteers, impact, and community engagement across Central Florida.',
-    photos: [
-      '/images/photography/vucf-events-1.jpg',
-      '/images/photography/vucf-events-2.jpg',
-      '/images/photography/vucf-events-3.jpg',
-      '/images/photography/vucf-events-4.jpg',
-    ],
+    photos: [null, null, null, null, null],
   },
 ];
 
@@ -296,19 +276,23 @@ function WebsiteCard({ site }) {
   );
 }
 
-function PhotoCard({ collection }) {
+function PhotoCard({ collection, onClick }) {
   return (
     <motion.article
       className="photo-card"
       variants={cardItem}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+      onClick={onClick}
     >
       <div className="photo-card__grid">
-        {collection.photos.map((src, i) => (
+        {collection.photos.slice(0, 4).map((src, i) => (
           <div key={i} className="photo-cell">
-            <img src={src} alt="" className="photo-cell__img" />
+            {src && <img src={src} alt="" className="photo-cell__img" />}
           </div>
         ))}
+        <div className="photo-card__overlay">
+          <span className="photo-card__overlay-label">View Gallery</span>
+        </div>
       </div>
       <div className="photo-card__body">
         <span className="photo-card__year">{collection.year}</span>
@@ -319,12 +303,129 @@ function PhotoCard({ collection }) {
   );
 }
 
+function Lightbox({ collection, onClose }) {
+  const [index, setIndex] = useState(0);
+  const photos = collection.photos;
+  const total  = photos.length;
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
+    const onKey = e => {
+      if (e.key === 'ArrowLeft')  setIndex(i => Math.max(0, i - 1));
+      if (e.key === 'ArrowRight') setIndex(i => Math.min(total - 1, i + 1));
+      if (e.key === 'Escape')     onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [total, onClose]);
+
+  const current = photos[index];
+
+  return (
+    <motion.div
+      className="lightbox-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="lightbox-window"
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.96 }}
+        transition={{ duration: 0.25 }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="lightbox-header">
+          <div>
+            <h3 className="lightbox-title">{collection.title}</h3>
+            <span className="lightbox-counter">{index + 1} / {total}</span>
+          </div>
+          <button className="lightbox-close" onClick={onClose} aria-label="Close">✕</button>
+        </div>
+
+        {/* Stage */}
+        <div className="lightbox-stage">
+          <button
+            className="lightbox-arrow lightbox-arrow--prev"
+            onClick={() => setIndex(i => Math.max(0, i - 1))}
+            disabled={index === 0}
+            aria-label="Previous"
+          >‹</button>
+
+          <div className="lightbox-img-wrap">
+            <AnimatePresence mode="wait">
+              {current ? (
+                <motion.img
+                  key={index}
+                  src={current}
+                  alt={`${collection.title} — photo ${index + 1}`}
+                  className="lightbox-img"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.18 }}
+                />
+              ) : (
+                <motion.div
+                  key={index}
+                  className="lightbox-placeholder"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <span className="lightbox-placeholder-icon">📷</span>
+                  <p>Image Coming Soon</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <button
+            className="lightbox-arrow lightbox-arrow--next"
+            onClick={() => setIndex(i => Math.min(total - 1, i + 1))}
+            disabled={index === total - 1}
+            aria-label="Next"
+          >›</button>
+        </div>
+
+        {/* Thumbnail strip */}
+        <div className="lightbox-thumbs">
+          {photos.map((src, i) => (
+            <button
+              key={i}
+              className={`lightbox-thumb${i === index ? ' lightbox-thumb--active' : ''}`}
+              onClick={() => setIndex(i)}
+              aria-label={`Photo ${i + 1}`}
+            >
+              {src
+                ? <img src={src} alt="" />
+                : <span className="lightbox-thumb-empty">+</span>
+              }
+            </button>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /* ── Page ─────────────────────────────────────────────────────────── */
 
 export default function Projects() {
   const [ucfExpanded, setUcfExpanded] = useState(false);
+  const [lightbox, setLightbox]       = useState(null);
 
   return (
+    <>
     <motion.div
       className="projects"
       variants={pageVariants}
@@ -470,11 +571,18 @@ export default function Projects() {
             viewport={viewportOnce}
           >
             {photoCollections.map(col => (
-              <PhotoCard key={col.id} collection={col} />
+              <PhotoCard key={col.id} collection={col} onClick={() => setLightbox(col)} />
             ))}
           </motion.div>
         </div>
       </section>
     </motion.div>
+
+    <AnimatePresence>
+      {lightbox && (
+        <Lightbox key="lightbox" collection={lightbox} onClose={() => setLightbox(null)} />
+      )}
+    </AnimatePresence>
+    </>
   );
 }
