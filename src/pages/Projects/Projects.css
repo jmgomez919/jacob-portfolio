@@ -777,10 +777,16 @@
   display: flex;
   gap: 0.5rem;
   padding: 0.85rem 1.5rem 1.1rem;
-  justify-content: center;
   border-top: 1px solid var(--border);
   flex-shrink: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
+
+.lightbox-thumbs::-webkit-scrollbar { height: 4px; }
+.lightbox-thumbs::-webkit-scrollbar-track { background: transparent; }
+.lightbox-thumbs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 .lightbox-thumb {
   width: 64px;
@@ -795,6 +801,7 @@
   justify-content: center;
   flex-shrink: 0;
   transition: border-color 0.2s;
+  scroll-snap-align: start;
 }
 
 .lightbox-thumb img {
