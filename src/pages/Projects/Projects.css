@@ -326,6 +326,63 @@
 }
 
 /* ════════════════════════════════════════
+   Combined UCF card (viewership + posts)
+════════════════════════════════════════ */
+.ucf-combined-card {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Strip UCFCard's own box styles when nested inside the combined card */
+.ucf-combined-card .ucf-card {
+  margin-top: 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ── Viewership stat (top panel) ── */
+.viewership-stat {
+  background-color: #f5f0e7;
+  padding: 2rem 2.25rem;
+}
+
+.viewership-stat__title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.viewership-stat__title strong {
+  color: #293491;
+}
+
+.viewership-stat__body {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text-sec);
+  line-height: 1.75;
+  max-width: 100%;
+  margin: 0 0 1.75rem;
+  text-align: center;
+}
+
+.viewership-stat__graph {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* ════════════════════════════════════════
    Website cards
 ════════════════════════════════════════ */
 .website-grid {

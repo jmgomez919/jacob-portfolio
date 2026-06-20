@@ -388,10 +388,36 @@ export default function Projects() {
             Social Media Management
           </motion.h2>
 
-          <UCFCard
-            expanded={ucfExpanded}
-            onToggle={() => setUcfExpanded(e => !e)}
-          />
+          <motion.div
+            className="ucf-combined-card"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            <div className="viewership-stat">
+              <h3 className="viewership-stat__title">
+                Increased Median Viewership by <strong><u>84.4%</u></strong>
+              </h3>
+              <p className="viewership-stat__body">
+                As Marketing Director for Volunteer UCF, I led with a photo-first philosophy — favoring authentic
+                images of volunteers and events over graphic-heavy cover slides. Paired with strategic profile tags
+                and UCF-specific hashtags, each post felt more personal and reached a wider audience organically.
+                The results followed: across my tenure from Fall 2025 to Spring 2026, median viewership on
+                @volunteerucf grew by 84.4%.
+              </p>
+              <img
+                src="/images/vucf-viewership-graph.png"
+                alt="Bar and trendline chart showing @volunteerucf viewership count from July 2024 to May 2026, with a visible upward trend beginning when Jacob joined in Fall 2025"
+                className="viewership-stat__graph"
+              />
+            </div>
+
+            <UCFCard
+              expanded={ucfExpanded}
+              onToggle={() => setUcfExpanded(e => !e)}
+            />
+          </motion.div>
         </div>
       </section>
 
