@@ -698,23 +698,19 @@
 
 /* Stage */
 .lightbox-stage {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  position: relative;
   flex: 1;
   min-height: 0;
+  background-color: #111;
 }
 
 .lightbox-img-wrap {
-  flex: 1;
-  height: 400px;
-  background-color: var(--beige);
-  border-radius: 8px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .lightbox-img {
@@ -733,10 +729,10 @@
   gap: 0.75rem;
   width: 100%;
   height: 100%;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.5);
 }
 
-.lightbox-placeholder-icon { font-size: 2.75rem; opacity: 0.35; }
+.lightbox-placeholder-icon { font-size: 2.75rem; opacity: 0.4; }
 
 .lightbox-placeholder p {
   font-family: var(--font-sans);
@@ -744,33 +740,39 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
-/* Arrows */
+/* Arrows — overlaid on the image */
 .lightbox-arrow {
-  width: 46px;
-  height: 46px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--border);
-  background-color: var(--card-bg);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background-color: rgba(0, 0, 0, 0.40);
   font-size: 1.8rem;
   line-height: 1;
-  color: var(--blue);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
+
+.lightbox-arrow--prev { left: 0.75rem; }
+.lightbox-arrow--next { right: 0.75rem; }
 
 .lightbox-arrow:hover:not(:disabled) {
-  background-color: var(--blue);
-  color: var(--beige);
-  border-color: var(--blue);
+  background-color: rgba(0, 0, 0, 0.72);
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
-.lightbox-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+.lightbox-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
 
 /* Thumbnail strip */
 .lightbox-thumbs {

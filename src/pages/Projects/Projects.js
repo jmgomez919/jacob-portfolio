@@ -88,6 +88,12 @@ const photoCollections = [
     title: "Binos — BTS",
     year: 2025,
     desc: "Behind-the-scenes photography capturing candid moments of cast and crew during the Bino's short film production.",
+    preview: [
+      '/images/photography/binos-bts-8.jpg',
+      '/images/photography/binos-bts-11.jpg',
+      '/images/photography/binos-bts-14.jpg',
+      '/images/photography/binos-bts-18.jpg',
+    ],
     photos: [
       '/images/photography/binos-bts-1.jpg',
       '/images/photography/binos-bts-2.jpg',
@@ -305,7 +311,7 @@ function PhotoCard({ collection, onClick }) {
       onClick={onClick}
     >
       <div className="photo-card__grid">
-        {collection.photos.slice(0, 4).map((src, i) => (
+        {(collection.preview || collection.photos).slice(0, 4).map((src, i) => (
           <div key={i} className="photo-cell">
             {src && <img src={src} alt="" className="photo-cell__img" />}
           </div>
