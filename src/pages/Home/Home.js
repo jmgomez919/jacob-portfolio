@@ -15,9 +15,9 @@ const slideshowImages = [
   { src: '/images/home-slide-3.png', position: '90% center', scale: 1   },
   { src: '/images/home-slide-4.png', position: '90% center', scale: 1   },
   { src: '/images/home-slide-5.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-6.jpg', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-7.jpg', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-8.jpg', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-6.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-7.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-8.png', position: '90% center', scale: 1   },
 ];
 
 function HeroSlideshow({ images }) {
