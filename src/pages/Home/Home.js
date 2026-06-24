@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -5,6 +6,32 @@ import {
   slideInLeft, slideInRight, viewportOnce,
 } from '../../utils/animations';
 import './Home.css';
+
+const slideshowImages = [
+  '/images/home-slide-1.png',
+  '/images/home-slide-2.png',
+  '/images/home-slide-3.jpg',
+  '/images/home-slide-4.jpg',
+  '/images/home-slide-5.jpg',
+  '/images/home-slide-6.jpg',
+  '/images/home-slide-7.jpg',
+  '/images/home-slide-8.jpg',
+];
+
+function HeroSlideshow({ images }) {
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => setCurrent(i => (i + 1) % images.length), 8000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+  return (
+    <div className="hero-slideshow" aria-hidden="true">
+      {images.map((src, i) => (
+        <img key={src} src={src} alt="" className={`hero-slide${i === current ? ' hero-slide--active' : ''}`} />
+      ))}
+    </div>
+  );
+}
 
 const services = [
   { img: '/images/what-i-do/graphic-design.png',   title: 'Graphic Design',    desc: 'Logos, brand identities, and print materials crafted since 2015.' },
@@ -19,6 +46,9 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section className="home__hero">
+        <HeroSlideshow images={slideshowImages} />
+        <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
+
         <motion.div
           className="home__hero-content"
           variants={slideInLeft}
