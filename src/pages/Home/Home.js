@@ -11,12 +11,12 @@ import './Home.css';
 // scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
 // caption:  { title, text } shown bottom-right of the hero for this slide
 const slideshowImages = [
-  { src: '/images/home-slide-1.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos were sent and viewed by the Artemis astronauts en route to the Moon.' } },
-  { src: '/images/home-slide-2.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos were sent and viewed by the Artemis astronauts en route to the Moon.' } },
-  { src: '/images/home-slide-3.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently displaying volunteering at its greatest.' } },
-  { src: '/images/home-slide-4.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently displaying volunteering at its greatest.' } },
-  { src: '/images/home-slide-5.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos at a Nashville conference commemorating America250 were used by UCF YAF.' } },
-  { src: '/images/home-slide-6.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos at a Nashville conference commemorating America250 were used by UCF YAF.' } },
+  { src: '/images/home-slide-1.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos I captured were sent and viewed by the Artemis astronauts en route to the Moon.' } },
+  { src: '/images/home-slide-2.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos I captured were sent and viewed by the Artemis astronauts en route to the Moon.' } },
+  { src: '/images/home-slide-3.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently highlighting volunteerism in action.' } },
+  { src: '/images/home-slide-4.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently highlighting volunteerism in action.' } },
+  { src: '/images/home-slide-5.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos I took at a Nashville conference commemorating America250 were used by UCF YAF on their social media and promotional pieces.' } },
+  { src: '/images/home-slide-6.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos I took at a Nashville conference commemorating America250 were used by UCF YAF on their social media and promotional pieces.' } },
   { src: '/images/home-slide-7.png', position: '90% center', scale: 1, caption: { title: 'UCF Club Activities', text: 'I played an integral part in increasing the media presence of UCF\'s Turning Point Chapter through my documentation of multiple meetings throughout the 2025-26 school year.' } },
   { src: '/images/home-slide-8.png', position: '90% center', scale: 1, caption: { title: 'UCF Club Activities', text: 'I played an integral part in increasing the media presence of UCF\'s Turning Point Chapter through my documentation of multiple meetings throughout the 2025-26 school year.' } },
 ];
