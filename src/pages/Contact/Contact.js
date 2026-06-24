@@ -13,9 +13,8 @@ const contactDetails = [
 ];
 
 const socialLinks = [
-  { img: '/images/instagram-beige-on-blue.jpg', platform: 'Instagram',      handle: '@yourhandle',               href: 'https://www.instagram.com/' },
-  { img: '/images/linkedin-beige-on-blue.jpg',  platform: 'LinkedIn',       handle: 'Jacob Gomez',               href: 'https://www.linkedin.com/' },
-  { img: '/images/internet-beige-on-blue.jpg',  platform: 'Portfolio Site', handle: 'capacityinfrastructure.com', href: 'https://capacityinfrastructure.com/' },
+  { img: '/images/instagram-beige-on-blue.jpg', platform: 'Instagram', handle: '@yourhandle', href: 'https://www.instagram.com/' },
+  { img: '/images/linkedin-beige-on-blue.jpg',  platform: 'LinkedIn',  handle: 'Jacob Gomez', href: 'https://www.linkedin.com/' },
 ];
 
 export default function Contact() {

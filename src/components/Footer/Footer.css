@@ -61,6 +61,14 @@
 
 .footer__social-link:hover { color: var(--beige); }
 
+.footer__social-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 .footer__copy {
   grid-column: 1 / -1;
   grid-row: 2;

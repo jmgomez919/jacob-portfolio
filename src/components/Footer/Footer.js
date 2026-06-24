@@ -1,9 +1,9 @@
 import './Footer.css';
 
 const socialLinks = [
-  { label: 'Instagram', href: 'https://www.instagram.com/', icon: '📸' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: '💼' },
-  { label: 'Email', href: 'mailto:j.mgomez919@gmail.com', icon: '✉️' },
+  { label: 'Instagram', href: 'https://www.instagram.com/', img: '/images/instagram-beige-on-blue.jpg' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/',  img: '/images/linkedin-beige-on-blue.jpg'  },
+  { label: 'Email',     href: 'mailto:j.mgomez919@gmail.com', icon: '✉️' },
 ];
 
 export default function Footer() {
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <nav className="footer__social" aria-label="Social links">
-          {socialLinks.map(({ label, href, icon }) => (
+          {socialLinks.map(({ label, href, img, icon }) => (
             <a
               key={label}
               href={href}
@@ -30,7 +30,11 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label={label}
             >
-              <span aria-hidden="true">{icon}</span> {label}
+              {img
+                ? <img src={img} alt="" className="footer__social-icon" aria-hidden="true" />
+                : <span aria-hidden="true">{icon}</span>
+              }
+              {label}
             </a>
           ))}
         </nav>

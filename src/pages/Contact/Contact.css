@@ -123,8 +123,8 @@
 }
 
 .contact__social-icon {
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   border-radius: 6px;
   object-fit: cover;
   flex-shrink: 0;
