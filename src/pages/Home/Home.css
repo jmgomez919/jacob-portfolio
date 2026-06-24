@@ -43,9 +43,9 @@
   margin-left: auto;
   z-index: 2;
   text-align: right;
-  max-width: 340px;
+  max-width: 420px;
   pointer-events: none;
-  background: rgba(245, 240, 231, 0.2);
+  background: rgba(245, 240, 231, 0.85);
   padding: 0.6rem 0.9rem;
   border-radius: 4px;
 }
