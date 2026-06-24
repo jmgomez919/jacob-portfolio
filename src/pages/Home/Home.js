@@ -62,12 +62,6 @@ export default function Home() {
           <HeroSlideshow images={slideshowImages} current={current} />
           <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
         </div>
-        {caption && (
-          <div className="hero-caption">
-            <p className="hero-caption__title">{caption.title}</p>
-            <p className="hero-caption__text">{caption.text}</p>
-          </div>
-        )}
 
         <motion.div
           className="home__hero-content"
@@ -98,6 +92,13 @@ export default function Home() {
             <Link to="/about"    className="btn btn--outline home__hero-cta-full">Learn More About Me</Link>
           </div>
         </motion.div>
+
+        {caption && (
+          <div className="hero-caption">
+            <p className="hero-caption__title">{caption.title}</p>
+            <p className="hero-caption__text">{caption.text}</p>
+          </div>
+        )}
 
       </section>
 
