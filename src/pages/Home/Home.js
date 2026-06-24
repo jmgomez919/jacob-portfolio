@@ -10,7 +10,7 @@ import './Home.css';
 // position: CSS object-position  e.g. '75% center', 'right top', '50% 30%'
 // scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
 const slideshowImages = [
-  { src: '/images/home-slide-1.png', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-1.png', position: '95% center', scale: 1   },
   { src: '/images/home-slide-2.png', position: '75% center', scale: 1   },
   { src: '/images/home-slide-3.jpg', position: '75% center', scale: 1   },
   { src: '/images/home-slide-4.jpg', position: '75% center', scale: 1   },
