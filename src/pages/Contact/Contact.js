@@ -13,8 +13,8 @@ const contactDetails = [
 ];
 
 const socialLinks = [
-  { img: '/images/instagram-beige-on-blue.jpg', platform: 'Instagram', handle: '@yourhandle', href: 'https://www.instagram.com/' },
-  { img: '/images/linkedin-beige-on-blue.jpg',  platform: 'LinkedIn',  handle: 'Jacob Gomez', href: 'https://www.linkedin.com/' },
+  { img: '/images/instagram-beige-on-blue-large.jpg', platform: 'Instagram', handle: '@yourhandle', href: 'https://www.instagram.com/' },
+  { img: '/images/linkedin-beige-on-blue-large.jpg',  platform: 'LinkedIn',  handle: 'Jacob Gomez', href: 'https://www.linkedin.com/' },
 ];
 
 export default function Contact() {
