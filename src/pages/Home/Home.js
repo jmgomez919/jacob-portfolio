@@ -7,15 +7,17 @@ import {
 } from '../../utils/animations';
 import './Home.css';
 
+// position: CSS object-position  e.g. '75% center', 'right top', '50% 30%'
+// scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
 const slideshowImages = [
-  '/images/home-slide-1.png',
-  '/images/home-slide-2.png',
-  '/images/home-slide-3.jpg',
-  '/images/home-slide-4.jpg',
-  '/images/home-slide-5.jpg',
-  '/images/home-slide-6.jpg',
-  '/images/home-slide-7.jpg',
-  '/images/home-slide-8.jpg',
+  { src: '/images/home-slide-1.png', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-2.png', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-3.jpg', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-4.jpg', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-5.jpg', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-6.jpg', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-7.jpg', position: '75% center', scale: 1   },
+  { src: '/images/home-slide-8.jpg', position: '75% center', scale: 1   },
 ];
 
 function HeroSlideshow({ images }) {
@@ -26,8 +28,14 @@ function HeroSlideshow({ images }) {
   }, [images.length]);
   return (
     <div className="hero-slideshow" aria-hidden="true">
-      {images.map((src, i) => (
-        <img key={src} src={src} alt="" className={`hero-slide${i === current ? ' hero-slide--active' : ''}`} />
+      {images.map(({ src, position, scale }, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          className={`hero-slide${i === current ? ' hero-slide--active' : ''}`}
+          style={{ objectPosition: position, transform: `scale(${scale})` }}
+        />
       ))}
     </div>
   );
