@@ -176,12 +176,65 @@
   box-shadow: 0 16px 48px rgba(41, 52, 145, 0.22);
 }
 
+/* ── Hero responsive ── */
 @media (max-width: 860px) {
   .home__hero { padding: 4rem 2rem; }
-  .home__hero-badge { display: none; }
 }
+
+@media (max-width: 768px) {
+  .home__hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    padding: 3rem 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .home__hero-content {
+    max-width: 100%;
+    background: rgba(245, 240, 231, 0.9);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .home__hero-tagline,
+  .home__hero-sub {
+    max-width: 100%;
+  }
+
+  .hero-caption {
+    position: relative;
+    bottom: auto;
+    margin-left: 0;
+    align-self: stretch;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero-caption__title,
+  .hero-caption__text {
+    text-align: left;
+  }
+}
+
 @media (max-width: 480px) {
-  .home__hero { min-height: auto; padding: 3.5rem 1.25rem; }
+  .home__hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .home__hero-title {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+  }
+
+  .home__hero-cta {
+    flex-direction: column;
+  }
+
+  .home__hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    flex: none;
+  }
 }
 
 /* ── What I Do ── */
@@ -264,4 +317,5 @@
 
 @media (max-width: 480px) {
   .home__services-grid { grid-template-columns: 1fr; }
+  .home__services-inner { padding: 3rem 1.25rem; }
 }
