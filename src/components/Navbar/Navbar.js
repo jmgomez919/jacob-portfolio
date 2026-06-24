@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Navbar.css';
 
@@ -13,10 +13,29 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+  const navRef = useRef(null);
+  const location = useLocation();
+
+  // Close on route change
+  useEffect(() => { closeMenu(); }, [location]);
+
+  // Close on outside click
+  useEffect(() => {
+    function handleClick(e) {
+      if (navRef.current && !navRef.current.contains(e.target)) closeMenu();
+    }
+    document.addEventListener('mousedown', handleClick);
+    document.addEventListener('touchstart', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('touchstart', handleClick);
+    };
+  }, []);
 
   return (
     <motion.nav
       className="navbar"
+      ref={navRef}
       initial={{ y: -70 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
