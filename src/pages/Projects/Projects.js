@@ -95,11 +95,10 @@ const photoCollections = [
       '/images/photography/binos-bts-18.jpg',
     ],
     photos: [
-      '/images/photography/binos-bts-1.jpg',
+      '/images/photography/binos-bts-5.jpg',  // start
       '/images/photography/binos-bts-2.jpg',
       '/images/photography/binos-bts-3.jpg',
       '/images/photography/binos-bts-4.jpg',
-      '/images/photography/binos-bts-5.jpg',
       '/images/photography/binos-bts-6.jpg',
       '/images/photography/binos-bts-7.jpg',
       '/images/photography/binos-bts-8.jpg',
@@ -114,6 +113,7 @@ const photoCollections = [
       '/images/photography/binos-bts-17.jpg',
       '/images/photography/binos-bts-18.jpg',
       '/images/photography/binos-bts-19.jpg',
+      '/images/photography/binos-bts-1.jpg',  // end
     ],
   },
   {
