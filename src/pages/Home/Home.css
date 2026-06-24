@@ -30,6 +30,20 @@
 
 .hero-slide--active { opacity: 1; }
 
+.hero-caption {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  color: rgba(245, 240, 231, 0.75);
+  text-align: right;
+  max-width: 320px;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
 /* Overlay PNG — middle layer */
 .hero-overlay {
   position: absolute;

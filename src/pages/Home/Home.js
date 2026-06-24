@@ -9,23 +9,19 @@ import './Home.css';
 
 // position: CSS object-position  e.g. '75% center', 'right top', '50% 30%'
 // scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
+// caption:  text shown bottom-right of the hero for this slide
 const slideshowImages = [
-  { src: '/images/home-slide-1.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-2.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-3.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-4.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-5.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-6.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-7.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-8.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-1.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-2.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-3.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-4.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-5.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-6.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-7.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-8.png', position: '90% center', scale: 1, caption: '' },
 ];
 
-function HeroSlideshow({ images }) {
-  const [current, setCurrent] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => setCurrent(i => (i + 1) % images.length), 8000);
-    return () => clearInterval(timer);
-  }, [images.length]);
+function HeroSlideshow({ images, current }) {
   return (
     <div className="hero-slideshow" aria-hidden="true">
       {images.map(({ src, position, scale }, i) => (
@@ -49,13 +45,22 @@ const services = [
 ];
 
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => setCurrent(i => (i + 1) % slideshowImages.length), 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const caption = slideshowImages[current].caption;
+
   return (
     <motion.div className="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
 
       {/* ── Hero ── */}
       <section className="home__hero">
-        <HeroSlideshow images={slideshowImages} />
+        <HeroSlideshow images={slideshowImages} current={current} />
         <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
+        {caption && <p className="hero-caption">{caption}</p>}
 
         <motion.div
           className="home__hero-content"
