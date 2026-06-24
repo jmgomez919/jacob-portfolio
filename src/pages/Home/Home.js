@@ -11,10 +11,10 @@ import './Home.css';
 // scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
 const slideshowImages = [
   { src: '/images/home-slide-1.png', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-2.jpg', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-3.jpg', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-4.jpg', position: '90% center', scale: 1   },
-  { src: '/images/home-slide-5.jpg', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-2.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-3.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-4.png', position: '90% center', scale: 1   },
+  { src: '/images/home-slide-5.png', position: '90% center', scale: 1   },
   { src: '/images/home-slide-6.jpg', position: '90% center', scale: 1   },
   { src: '/images/home-slide-7.jpg', position: '90% center', scale: 1   },
   { src: '/images/home-slide-8.jpg', position: '90% center', scale: 1   },
