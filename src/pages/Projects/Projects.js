@@ -645,15 +645,14 @@ export default function Projects() {
           </motion.h2>
 
           <motion.div
-            className="website-grid"
-            variants={staggerContainer}
+            className="websites-wip"
+            variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
-            {websiteProjects.map(site => (
-              <WebsiteCard key={site.id} site={site} />
-            ))}
+            <img src="/images/websites-wip.jpg" alt="Websites work in progress" className="websites-wip__img" />
+            <span className="websites-wip__label">Work in Progress</span>
           </motion.div>
         </div>
       </section>

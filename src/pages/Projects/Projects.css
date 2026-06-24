@@ -385,6 +385,36 @@
 /* ════════════════════════════════════════
    Website cards
 ════════════════════════════════════════ */
+.websites-wip {
+  position: relative;
+  border-radius: 4pt;
+  overflow: hidden;
+  width: 100%;
+}
+
+.websites-wip__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4pt;
+}
+
+.websites-wip__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  pointer-events: none;
+}
+
 .website-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
