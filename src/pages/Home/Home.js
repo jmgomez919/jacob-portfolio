@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   pageVariants, fadeUp, staggerContainer,
   slideInLeft, viewportOnce,
@@ -46,10 +46,21 @@ const services = [
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const [panelOpen, setPanelOpen] = useState(false);
+
   useEffect(() => {
     const timer = setInterval(() => setCurrent(i => (i + 1) % slideshowImages.length), 8000);
     return () => clearInterval(timer);
   }, []);
+
+  // Lock body scroll when panel is open
+  useEffect(() => {
+    document.body.style.overflow = panelOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [panelOpen]);
+
+  const prevSlide = () => setCurrent(i => (i - 1 + slideshowImages.length) % slideshowImages.length);
+  const nextSlide = () => setCurrent(i => (i + 1) % slideshowImages.length);
 
   const { caption } = slideshowImages[current];
 
@@ -100,7 +111,63 @@ export default function Home() {
           </div>
         )}
 
+        {/* Prime Photos tab — mobile only */}
+        <button
+          className="hero-prime-tab"
+          onClick={() => setPanelOpen(true)}
+          aria-label="View Prime Photos slideshow"
+        >
+          <span>Prime Photos</span>
+        </button>
+
       </section>
+
+      {/* Prime Photos slide-in panel — mobile only */}
+      <AnimatePresence>
+        {panelOpen && (
+          <>
+            <motion.div
+              className="hero-prime-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setPanelOpen(false)}
+            />
+            <motion.div
+              className="hero-prime-panel"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 32 }}
+            >
+              <button className="hero-prime-panel__close" onClick={() => setPanelOpen(false)} aria-label="Close">✕</button>
+
+              <div className="hero-prime-panel__stage">
+                <img
+                  src={slideshowImages[current].src}
+                  alt=""
+                  className="hero-prime-panel__img"
+                  style={{ objectPosition: slideshowImages[current].position }}
+                />
+                <button className="hero-prime-panel__nav hero-prime-panel__prev" onClick={prevSlide} aria-label="Previous">‹</button>
+                <button className="hero-prime-panel__nav hero-prime-panel__next" onClick={nextSlide} aria-label="Next">›</button>
+              </div>
+
+              <div className="hero-prime-panel__counter">
+                {current + 1} / {slideshowImages.length}
+              </div>
+
+              {slideshowImages[current].caption && (
+                <div className="hero-prime-panel__caption">
+                  <p className="hero-prime-panel__caption-title">{slideshowImages[current].caption.title}</p>
+                  <p className="hero-prime-panel__caption-text">{slideshowImages[current].caption.text}</p>
+                </div>
+              )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── What I Do ── */}
       <section className="home__services">

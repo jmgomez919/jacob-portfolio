@@ -176,6 +176,113 @@
   box-shadow: 0 16px 48px rgba(41, 52, 145, 0.22);
 }
 
+/* ── Prime Photos tab (hidden on desktop) ── */
+.hero-prime-tab {
+  display: none;
+}
+
+/* ── Prime Photos overlay panel ── */
+.hero-prime-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 500;
+}
+
+.hero-prime-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 82vw;
+  max-width: 380px;
+  height: 100dvh;
+  background: #111;
+  z-index: 501;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hero-prime-panel__close {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(245, 240, 231, 0.15);
+  border: 1px solid rgba(245, 240, 231, 0.35);
+  color: var(--beige);
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-prime-panel__stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.hero-prime-panel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-prime-panel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(245, 240, 231, 0.15);
+  border: none;
+  color: var(--beige);
+  font-size: 2.2rem;
+  line-height: 1;
+  padding: 0.75rem 0.6rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.hero-prime-panel__prev { left: 0.5rem; }
+.hero-prime-panel__next { right: 0.5rem; }
+
+.hero-prime-panel__counter {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(245, 240, 231, 0.5);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.hero-prime-panel__caption {
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid rgba(245, 240, 231, 0.1);
+}
+
+.hero-prime-panel__caption-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #293491;
+  margin-bottom: 0.25rem;
+}
+
+.hero-prime-panel__caption-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.88rem;
+  color: rgba(245, 240, 231, 0.8);
+  line-height: 1.5;
+}
+
 /* ── Hero responsive ── */
 @media (max-width: 860px) {
   .home__hero { padding: 4rem 2rem; }
@@ -190,6 +297,9 @@
     gap: 1.5rem;
   }
 
+  /* Hide background slideshow — replaced by Prime Photos panel */
+  .hero-background { display: none; }
+
   .home__hero-content {
     max-width: 100%;
     background: rgba(245, 240, 231, 0.9);
@@ -198,9 +308,7 @@
   }
 
   .home__hero-tagline,
-  .home__hero-sub {
-    max-width: 100%;
-  }
+  .home__hero-sub { max-width: 100%; }
 
   .hero-caption {
     position: relative;
@@ -212,23 +320,43 @@
   }
 
   .hero-caption__title,
-  .hero-caption__text {
-    text-align: left;
+  .hero-caption__text { text-align: left; }
+
+  /* Show Prime Photos tab */
+  .hero-prime-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+    padding: 1.1rem 0.55rem;
+    border-radius: 6px 0 0 6px;
+    z-index: 3;
+  }
+
+  .hero-prime-tab span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--beige);
   }
 }
 
 @media (max-width: 480px) {
-  .home__hero {
-    padding: 2rem 1rem 1.5rem;
-  }
+  .home__hero { padding: 2rem 1rem 1.5rem; }
 
-  .home__hero-title {
-    font-size: clamp(2.5rem, 11vw, 3.5rem);
-  }
+  .home__hero-title { font-size: clamp(2.5rem, 11vw, 3.5rem); }
 
-  .home__hero-cta {
-    flex-direction: column;
-  }
+  .home__hero-cta { flex-direction: column; }
 
   .home__hero-cta .btn {
     width: 100%;
