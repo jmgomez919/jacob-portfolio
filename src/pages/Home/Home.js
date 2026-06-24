@@ -58,8 +58,10 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section className="home__hero">
-        <HeroSlideshow images={slideshowImages} current={current} />
-        <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
+        <div className="hero-background">
+          <HeroSlideshow images={slideshowImages} current={current} />
+          <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
+        </div>
         {caption && (
           <div className="hero-caption">
             <p className="hero-caption__title">{caption.title}</p>
