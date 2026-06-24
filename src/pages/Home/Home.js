@@ -9,16 +9,16 @@ import './Home.css';
 
 // position: CSS object-position  e.g. '75% center', 'right top', '50% 30%'
 // scale:    zoom multiplier       e.g. 1 = normal, 1.2 = 20% zoom in
-// caption:  text shown bottom-right of the hero for this slide
+// caption:  { title, text } shown bottom-right of the hero for this slide
 const slideshowImages = [
-  { src: '/images/home-slide-1.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-2.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-3.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-4.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-5.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-6.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-7.png', position: '90% center', scale: 1, caption: '' },
-  { src: '/images/home-slide-8.png', position: '90% center', scale: 1, caption: '' },
+  { src: '/images/home-slide-1.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos were sent and viewed by the Artemis astronauts en route to the Moon.' } },
+  { src: '/images/home-slide-2.png', position: '90% center', scale: 1, caption: { title: 'Artemis II', text: 'Through timely circumstances, these launch photos were sent and viewed by the Artemis astronauts en route to the Moon.' } },
+  { src: '/images/home-slide-3.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently displaying volunteering at its greatest.' } },
+  { src: '/images/home-slide-4.png', position: '90% center', scale: 1, caption: { title: 'Volunteer UCF', text: 'A large component to the increase in viewership and exposure to VUCF\'s mission was prominently displaying volunteering at its greatest.' } },
+  { src: '/images/home-slide-5.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos at a Nashville conference commemorating America250 were used by UCF YAF.' } },
+  { src: '/images/home-slide-6.png', position: '90% center', scale: 1, caption: { title: 'Freedom250 in Nashville', text: 'Photos at a Nashville conference commemorating America250 were used by UCF YAF.' } },
+  { src: '/images/home-slide-7.png', position: '90% center', scale: 1, caption: { title: 'UCF Club Activities', text: 'I played an integral part in increasing the media presence of UCF\'s Turning Point Chapter through my documentation of multiple meetings throughout the 2025-26 school year.' } },
+  { src: '/images/home-slide-8.png', position: '90% center', scale: 1, caption: { title: 'UCF Club Activities', text: 'I played an integral part in increasing the media presence of UCF\'s Turning Point Chapter through my documentation of multiple meetings throughout the 2025-26 school year.' } },
 ];
 
 function HeroSlideshow({ images, current }) {
@@ -51,7 +51,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const caption = slideshowImages[current].caption;
+  const { caption } = slideshowImages[current];
 
   return (
     <motion.div className="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
@@ -60,7 +60,12 @@ export default function Home() {
       <section className="home__hero">
         <HeroSlideshow images={slideshowImages} current={current} />
         <img src="/images/hero-overlay.png" alt="" className="hero-overlay" aria-hidden="true" />
-        {caption && <p className="hero-caption">{caption}</p>}
+        {caption && (
+          <div className="hero-caption">
+            <p className="hero-caption__title">{caption.title}</p>
+            <p className="hero-caption__text">{caption.text}</p>
+          </div>
+        )}
 
         <motion.div
           className="home__hero-content"
