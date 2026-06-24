@@ -150,7 +150,30 @@ const photoCollections = [
     title: 'Professional Sessions',
     year: 2025,
     desc: 'Portrait and lifestyle photography sessions, including individual and pet portrait shoots at outdoor and urban locations.',
-    photos: [null, null, null, null, null],
+    preview: [
+      '/images/photography/professional-11.jpg',
+      '/images/photography/professional-10.jpg',
+      '/images/photography/professional-13.jpg',
+      '/images/photography/professional-1.jpg',
+    ],
+    photos: [
+      '/images/photography/professional-11.jpg',  // start
+      '/images/photography/professional-1.jpg',
+      '/images/photography/professional-2.jpg',
+      '/images/photography/professional-3.jpg',
+      '/images/photography/professional-4.jpg',
+      '/images/photography/professional-5.jpg',
+      '/images/photography/professional-6.jpg',
+      '/images/photography/professional-7.jpg',
+      '/images/photography/professional-8.jpg',
+      '/images/photography/professional-9.jpg',
+      '/images/photography/professional-10.jpg',
+      '/images/photography/professional-12.jpg',
+      '/images/photography/professional-13.jpg',
+      '/images/photography/professional-14.jpg',
+      '/images/photography/professional-15.jpg',
+      '/images/photography/professional-16.jpg',  // end
+    ],
   },
   {
     id: 'vucf-events',
