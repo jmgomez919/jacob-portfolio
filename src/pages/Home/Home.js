@@ -87,18 +87,6 @@ export default function Home() {
           </div>
         </motion.div>
 
-        <motion.div
-          className="home__hero-badge"
-          variants={slideInRight}
-          initial="hidden"
-          animate="visible"
-        >
-          <img
-            src="/images/logo-dark.png"
-            alt="JG919 logo"
-            className="home__hero-logo"
-          />
-        </motion.div>
       </section>
 
       {/* ── What I Do ── */}
