@@ -309,16 +309,8 @@
   .home__hero-sub { max-width: 100%; }
 
   .hero-caption {
-    position: relative;
-    bottom: auto;
-    margin-left: 0;
-    align-self: stretch;
-    max-width: 100%;
-    text-align: left;
+    display: none;
   }
-
-  .hero-caption__title,
-  .hero-caption__text { text-align: left; }
 
   /* Show Prime Photos tab */
   .hero-prime-tab {
