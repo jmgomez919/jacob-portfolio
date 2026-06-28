@@ -391,9 +391,12 @@
 .ucf-combined-card .ucf-card {
   margin-top: 0;
   border: none;
-  border-top: 1px solid var(--border);
   border-radius: 0;
   box-shadow: none;
+}
+
+.ucf-combined-card .viewership-stat {
+  border-top: 1px solid var(--border);
 }
 
 /* ── Viewership stat (top panel) ── */

@@ -578,16 +578,21 @@ export default function Projects() {
             whileInView="visible"
             viewport={viewportOnce}
           >
+            <UCFCard
+              expanded={ucfExpanded}
+              onToggle={() => setUcfExpanded(e => !e)}
+            />
+
             <div className="viewership-stat">
               <h3 className="viewership-stat__title">
                 Increased Median Viewership by <strong><u>84.4%</u></strong>
               </h3>
               <p className="viewership-stat__body">
                 As Marketing Director for Volunteer UCF, I led with a photo-first philosophy by favoring authentic, action-oriented
-                images of volunteers and events over graphic-heavy cover slides. I employed specific art styles that reflected each 
+                images of volunteers and events over graphic-heavy cover slides. I employed specific art styles that reflected each
                 event and allowed each post to stand out from eachother. By utilizing strategic profile tags and UCF-specific hashtags,
                   each post felt more personal and reached a wider audience organically.
-                Across my tenure from Fall 2025 through Spring 2026, median viewership nearly doubled as well as a 
+                Across my tenure from Fall 2025 through Spring 2026, median viewership nearly doubled as well as a
                   noticeable increase in audience engagement and overall exposure, spreading the word of VUCF's mission.
               </p>
               <img
@@ -596,11 +601,6 @@ export default function Projects() {
                 className="viewership-stat__graph"
               />
             </div>
-
-            <UCFCard
-              expanded={ucfExpanded}
-              onToggle={() => setUcfExpanded(e => !e)}
-            />
           </motion.div>
         </div>
       </section>
