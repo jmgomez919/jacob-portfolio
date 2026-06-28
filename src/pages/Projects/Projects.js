@@ -41,6 +41,17 @@ const filmPosters = [
     tools: ['Blender'],
     img: '/images/poster-television-tension.jpg',
   },
+  {
+    id: 'call-me-up',
+    title: 'Call Me Up (Thru Tha Grapevine)',
+    year: 2026,
+    role: 'Graphic Design',
+    director: 'Directed by Mandy White',
+    description:
+      'Used Adobe Illustrator to individually trace each cast member\'s silhouette — arms, faces, clothing, jewelry, and hair — to achieve the blocky, pop-style aesthetic the director envisioned for her music video.',
+    tools: ['Illustrator'],
+    img: '/images/poster-call-me-up.jpg',
+  },
 ];
 
 const instagramPosts = [
