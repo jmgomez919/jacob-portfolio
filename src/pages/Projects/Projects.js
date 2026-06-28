@@ -205,6 +205,70 @@ const photoCollections = [
 
 /* ── Sub-components ───────────────────────────────────────────────── */
 
+function PosterCarousel() {
+  const [idx, setIdx] = useState(0);
+  const [dir, setDir] = useState(1);
+  const count = filmPosters.length;
+
+  const go = (next) => {
+    if (next === idx) return;
+    setDir(next > idx ? 1 : -1);
+    setIdx(next);
+  };
+  const prev = () => go((idx - 1 + count) % count);
+  const next = () => go((idx + 1) % count);
+
+  const slideVariants = {
+    enter: d => ({ x: d > 0 ? 80 : -80, opacity: 0 }),
+    center:    { x: 0, opacity: 1 },
+    exit:  d => ({ x: d > 0 ? -80 : 80, opacity: 0 }),
+  };
+
+  return (
+    <motion.div
+      className="poster-carousel"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+    >
+      <div className="poster-carousel__stage">
+        <button className="poster-carousel__arrow" onClick={prev} aria-label="Previous poster">‹</button>
+
+        <div className="poster-carousel__viewport">
+          <AnimatePresence mode="wait" custom={dir}>
+            <motion.div
+              key={idx}
+              className="poster-carousel__slide"
+              custom={dir}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <PosterCard poster={filmPosters[idx]} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <button className="poster-carousel__arrow" onClick={next} aria-label="Next poster">›</button>
+      </div>
+
+      <div className="poster-carousel__dots">
+        {filmPosters.map((_, i) => (
+          <button
+            key={i}
+            className={`poster-dot${i === idx ? ' poster-dot--active' : ''}`}
+            onClick={() => go(i)}
+            aria-label={filmPosters[i].title}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 function PosterCard({ poster }) {
   return (
     <motion.article
@@ -518,17 +582,7 @@ export default function Projects() {
             Film Posters
           </motion.h2>
 
-          <motion.div
-            className="poster-grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            {filmPosters.map(poster => (
-              <PosterCard key={poster.id} poster={poster} />
-            ))}
-          </motion.div>
+          <PosterCarousel />
         </div>
       </section>
 
