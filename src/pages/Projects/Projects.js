@@ -542,7 +542,7 @@ export default function Projects() {
       </section>
 
       {/* ── Film Posters ── */}
-      <section className="proj-section">
+      <section className="proj-section proj-section--posters">
         <div className="proj-section__inner">
           <motion.h2
             className="section-heading"
