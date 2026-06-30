@@ -90,11 +90,8 @@ export default function Home() {
           </p>
 
           <p className="home__hero-sub">
-            With dedication, I strive to create media that not only reflects a high standard
-            of quality and consistency, but also captures attention and resonates with a wide
-            and diverse audience. Through years of education, internships, and experience in graphic design and photography, I've developed a skill set focused on producing content that is
-            both visually compelling and widely seen. Wherever my work is presented, I am
-            committed to delivering impactful results that represent nothing short of my best effort!
+            I create media that holds a high standard of quality and consistency while capturing attention and connecting with a broad audience. My background spans graphic design and photography across coursework, internships, and client work, and it’s shaped a skill set focused on producing content that’s both visually compelling and built to be seen. Wherever my work shows up, I bring the same commitment to getting it right.
+
           </p>
           <div className="home__hero-cta">
             <Link to="/projects" className="btn btn--primary">View My Work</Link>
