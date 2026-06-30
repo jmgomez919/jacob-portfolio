@@ -90,7 +90,9 @@ export default function Home() {
           </p>
 
           <p className="home__hero-sub">
-            I create media that holds a high standard of quality and consistency while capturing attention and connecting with a broad audience. My background spans graphic design and photography across coursework, internships, and client work, and it’s shaped a skill set focused on producing content that’s both visually compelling and built to be seen. Wherever my work shows up, I bring the same commitment to getting it right.
+            I create media that holds a high standard of quality and consistency while capturing attention and connecting with a broad audience. 
+            My background spans graphic design and photography across coursework, internships, and client work. That experience has shaped a skill set focused on 
+            producing content that’s both visually compelling and built to be seen. Wherever my work shows up, I bring the same commitment to getting it right.
 
           </p>
           <div className="home__hero-cta">
