@@ -92,8 +92,7 @@ export default function Home() {
           <p className="home__hero-sub">
             With dedication, I strive to create media that not only reflects a high standard
             of quality and consistency, but also captures attention and resonates with a wide
-            and diverse audience. Through years of experience in graphic design, internships,
-            and photography, I've developed a skill set focused on producing content that is
+            and diverse audience. Through years of education, internships, and experience in graphic design and photography, I've developed a skill set focused on producing content that is
             both visually compelling and widely seen. Wherever my work is presented, I am
             committed to delivering impactful results that represent nothing short of my best effort!
           </p>
