@@ -62,8 +62,6 @@ export default function Home() {
   const prevSlide = () => setCurrent(i => (i - 1 + slideshowImages.length) % slideshowImages.length);
   const nextSlide = () => setCurrent(i => (i + 1) % slideshowImages.length);
 
-  const { caption } = slideshowImages[current];
-
   return (
     <motion.div className="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
 
@@ -101,13 +99,6 @@ export default function Home() {
             <Link to="/about"    className="btn btn--outline home__hero-cta-full">Learn More About Me</Link>
           </div>
         </motion.div>
-
-        {caption && (
-          <div className="hero-caption">
-            <p className="hero-caption__title">{caption.title}</p>
-            <p className="hero-caption__text">{caption.text}</p>
-          </div>
-        )}
 
         {/* Prime Photos tab — mobile only */}
         <button
