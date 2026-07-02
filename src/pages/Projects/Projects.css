@@ -680,15 +680,21 @@
 }
 
 /* Editorial photo card (single cover image) */
+.photo-card--editorial {
+  display: flex;
+  flex-direction: column;
+}
+
 .photo-card--editorial .photo-card__grid {
   grid-template-columns: 1fr;
 }
 
 .photo-cell--cover {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 1 / 1;
 }
 
 .photo-card--editorial .photo-card__body {
+  flex: 1;
   background-color: var(--blue);
 }
 
@@ -836,7 +842,7 @@
 
 /* Editorial lightbox — wider to fit article panel */
 .lightbox-window--editorial {
-  max-width: 1280px;
+  max-width: min(1500px, 96vw);
 }
 
 /* Article panel — scrollable text to the right of the slideshow */
