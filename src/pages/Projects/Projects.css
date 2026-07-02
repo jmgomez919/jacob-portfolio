@@ -679,6 +679,31 @@
   line-height: 1.65;
 }
 
+/* Editorial photo card (single cover image) */
+.photo-card--editorial .photo-card__grid {
+  grid-template-columns: 1fr;
+}
+
+.photo-cell--cover {
+  aspect-ratio: 3 / 2;
+}
+
+.photo-card--editorial .photo-card__body {
+  background-color: var(--blue);
+}
+
+.photo-card--editorial .photo-card__year {
+  color: rgba(245, 240, 231, 0.55);
+}
+
+.photo-card--editorial .photo-card__title {
+  color: var(--beige);
+}
+
+.photo-card--editorial .photo-card__desc {
+  color: rgba(245, 240, 231, 0.75);
+}
+
 /* ════════════════════════════════════════
    Photo card — hover overlay
 ════════════════════════════════════════ */
@@ -782,11 +807,20 @@
 
 /* Stage */
 .lightbox-stage {
-  position: relative;
   flex: 1;
   min-height: 0;
   overflow: hidden;
   background-color: #111;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Wraps the photo + nav arrows; takes remaining width */
+.lightbox-photo-area {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   display: flex;
   align-items: stretch;
 }
@@ -798,6 +832,60 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+/* Editorial lightbox — wider to fit article panel */
+.lightbox-window--editorial {
+  max-width: 1280px;
+}
+
+/* Article panel — scrollable text to the right of the slideshow */
+.lightbox-article-panel {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: var(--blue);
+  border-left: 1px solid rgba(245, 240, 231, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1.5rem 1.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 240, 231, 0.25) transparent;
+}
+
+.lightbox-article-panel::-webkit-scrollbar { width: 4px; }
+.lightbox-article-panel::-webkit-scrollbar-track { background: transparent; }
+.lightbox-article-panel::-webkit-scrollbar-thumb {
+  background: rgba(245, 240, 231, 0.25);
+  border-radius: 2px;
+}
+
+.lightbox-article-panel__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--beige);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.lightbox-article-panel__date {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(245, 240, 231, 0.55);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(245, 240, 231, 0.15);
+}
+
+.lightbox-article-panel__body p {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: rgba(245, 240, 231, 0.82);
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 .lightbox-img {
@@ -916,6 +1004,7 @@
 ════════════════════════════════════════ */
 @media (max-width: 700px) {
   .ucf-posts-grid { grid-template-columns: 1fr; }
+  .lightbox-article-panel { display: none; }
 }
 
 @media (max-width: 900px) {

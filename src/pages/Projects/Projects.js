@@ -66,6 +66,34 @@ const instagramPosts = [
 
 const photoCollections = [
   {
+    id: 'inauguration',
+    title: '2025 INAUGURATION',
+    year: 2025,
+    cover: '/images/photography/inauguration-1.jpg',
+    desc: 'On-the-ground photo-journalism from the 2025 Presidential Inauguration in Washington D.C. — documenting the atmosphere, the crowds, and the historic transfer of power on January 20th.',
+    photos: [
+      '/images/photography/inauguration-1.jpg',
+      '/images/photography/inauguration-2.jpg',
+      '/images/photography/inauguration-3.jpg',
+      '/images/photography/inauguration-4.jpg',
+      '/images/photography/inauguration-5.jpg',
+      '/images/photography/inauguration-6.jpg',
+      '/images/photography/inauguration-7.jpg',
+      '/images/photography/inauguration-8.jpg',
+    ],
+    article: {
+      title: '—GRATITUDE AND REVERENCE—',
+      date: 'January 20, 2025 — Washington D.C.',
+      paragraphs: [
+        'It may have been empty, but the world was still watching. It may have been quiet, but I could feel the energy in the air. Despite single-digit temperatures varying speeds of wind gusts, there was still a moderate presence of Trump supporters as well as secret service activity. A largely peaceful and homogeneous group was present as there appeared to be little to no opposition to the peaceful transfer of power.',
+        'Of the several hundred tourists and locals in the surrounding areas witnessing the ceremonies, I only spotted three vocal protesters around the Washington Monument, which was surprising for one of the largest concentrations of liberal voters in the country. It was at the base of said monument that I watched the swearing-in speeches on a livestream on someone else\'s phone. I didn\'t stick around for much longer as every minute spent out in the open, the sharp winds pierced through more of my double layered clothing.',
+        'To quickly summarize the last 48 hours, it was a truly eye-opening experience to witness significant moments in history as they unfolded. Traditions that have spanned nearly a quarter of a millennium still represent and instill the best aspects and values of our country: the freedom of expression, freedom of the press, and a democratic process of government however imperfect it may be.',
+        'To be a part of a moment in history and witnessing these events in person made me feel a sense of pride and gratitude. A tremendous amount of appreciation for the circumstances of our nation\'s history — from our darkest hours to our highest moments. Although there are plenty of imperfections within the operations of this country waiting to be smoothed out, moments like these give me a feeling of hope to know that the story isn\'t over.',
+        'Whether it be in this presidency or the next one, somewhere in the near future, more people across this beautiful country and across the spectrum can take more closely-to-heart values and beliefs that resonate in a personal favorite quote of mine written by Evelyn Beatrice Hall — "I disapprove of what you say, but I will defend to the death your right to say it."',
+      ],
+    },
+  },
+  {
     id: 'binos-bts',
     title: "Binos — BTS",
     year: 2025,
@@ -369,19 +397,26 @@ function UCFCard({ expanded, onToggle }) {
 
 
 function PhotoCard({ collection, onClick }) {
+  const isEditorial = !!collection.cover;
   return (
     <motion.article
-      className="photo-card"
+      className={`photo-card${isEditorial ? ' photo-card--editorial' : ''}`}
       variants={cardItem}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
       onClick={onClick}
     >
       <div className="photo-card__grid">
-        {(collection.preview || collection.photos).slice(0, 4).map((src, i) => (
-          <div key={i} className="photo-cell">
-            {src && <img src={src} alt="" className="photo-cell__img" />}
+        {isEditorial ? (
+          <div className="photo-cell photo-cell--cover">
+            <img src={collection.cover} alt="" className="photo-cell__img" />
           </div>
-        ))}
+        ) : (
+          (collection.preview || collection.photos).slice(0, 4).map((src, i) => (
+            <div key={i} className="photo-cell">
+              {src && <img src={src} alt="" className="photo-cell__img" />}
+            </div>
+          ))
+        )}
         <div className="photo-card__overlay">
           <span className="photo-card__overlay-label">View Gallery</span>
         </div>
@@ -397,8 +432,9 @@ function PhotoCard({ collection, onClick }) {
 
 function Lightbox({ collection, onClose }) {
   const [index, setIndex] = useState(0);
-  const photos = collection.photos;
-  const total  = photos.length;
+  const photos  = collection.photos;
+  const total   = photos.length;
+  const article = collection.article;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -427,7 +463,7 @@ function Lightbox({ collection, onClose }) {
       onClick={onClose}
     >
       <motion.div
-        className="lightbox-window"
+        className={`lightbox-window${article ? ' lightbox-window--editorial' : ''}`}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.96 }}
@@ -445,48 +481,62 @@ function Lightbox({ collection, onClose }) {
 
         {/* Stage */}
         <div className="lightbox-stage">
-          <button
-            className="lightbox-arrow lightbox-arrow--prev"
-            onClick={() => setIndex(i => Math.max(0, i - 1))}
-            disabled={index === 0}
-            aria-label="Previous"
-          >‹</button>
+          {/* Photo area */}
+          <div className="lightbox-photo-area">
+            <button
+              className="lightbox-arrow lightbox-arrow--prev"
+              onClick={() => setIndex(i => Math.max(0, i - 1))}
+              disabled={index === 0}
+              aria-label="Previous"
+            >‹</button>
 
-          <div className="lightbox-img-wrap">
-            <AnimatePresence mode="wait">
-              {current ? (
-                <motion.img
-                  key={index}
-                  src={current}
-                  alt={`${collection.title} — photo ${index + 1}`}
-                  className="lightbox-img"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                />
-              ) : (
-                <motion.div
-                  key={index}
-                  className="lightbox-placeholder"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  <span className="lightbox-placeholder-icon">📷</span>
-                  <p>Image Coming Soon</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="lightbox-img-wrap">
+              <AnimatePresence mode="wait">
+                {current ? (
+                  <motion.img
+                    key={index}
+                    src={current}
+                    alt={`${collection.title} — photo ${index + 1}`}
+                    className="lightbox-img"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  />
+                ) : (
+                  <motion.div
+                    key={index}
+                    className="lightbox-placeholder"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <span className="lightbox-placeholder-icon">📷</span>
+                    <p>Image Coming Soon</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <button
+              className="lightbox-arrow lightbox-arrow--next"
+              onClick={() => setIndex(i => Math.min(total - 1, i + 1))}
+              disabled={index === total - 1}
+              aria-label="Next"
+            >›</button>
           </div>
 
-          <button
-            className="lightbox-arrow lightbox-arrow--next"
-            onClick={() => setIndex(i => Math.min(total - 1, i + 1))}
-            disabled={index === total - 1}
-            aria-label="Next"
-          >›</button>
+          {/* Article panel (editorial collections only) */}
+          {article && (
+            <div className="lightbox-article-panel">
+              <p className="lightbox-article-panel__title">{article.title}</p>
+              <p className="lightbox-article-panel__date">{article.date}</p>
+              <div className="lightbox-article-panel__body">
+                {article.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Thumbnail strip */}
