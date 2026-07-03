@@ -608,10 +608,9 @@ export default function Projects() {
           initial="hidden"
           animate="visible"
         >
-          <p className="projects__eyebrow">My Work</p>
           <h1 className="projects__title">Projects</h1>
           <p className="projects__subtitle">
-            Film poster design, social media marketing, and photography — a curated selection of work.
+            Film poster designs, social media marketing, photography, and journalism — a curated selection of my work.
           </p>
         </motion.div>
       </section>
