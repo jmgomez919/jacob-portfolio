@@ -59,10 +59,10 @@ export default function About() {
           <p className="about__bio-role">Digital Designer · Photographer · Film Collaborator</p>
 
           <p>
-            I was born in New Jersey in 2000 and relocated to Florida in 2007, where I've
-            continued to grow both personally and creatively. I have a strong interest in
-            traveling, film analysis, video games, space exploration, and documenting
-            meaningful moments with my family — I'm also the oldest of four siblings.
+            Born in New Jersey, I relocated to Florida in 2007, where I've continued to grow
+            both personally and creatively. I have a strong interest in traveling, film
+            analysis, video games, space exploration, and documenting meaningful moments with
+            my family — I'm also the oldest of four siblings.
           </p>
           <p>
             I earned two Associate degrees in Digital Cinema and Television Production from
