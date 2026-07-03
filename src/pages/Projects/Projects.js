@@ -94,6 +94,31 @@ const photoCollections = [
     },
   },
   {
+    id: 'artemis-2',
+    title: 'ARTEMIS II LAUNCH',
+    year: 2026,
+    cover: '/images/photography/artemis-1.jpg',
+    desc: 'On-the-ground photo-journalism from the Artemis II launch at Kennedy Space Center — documenting the crowd, the fire of liftoff, and humanity\'s return to the Moon.',
+    photos: [
+      '/images/photography/artemis-1.jpg',
+      '/images/photography/artemis-2.jpg',
+      '/images/photography/artemis-3.jpg',
+      '/images/photography/artemis-4.jpg',
+      '/images/photography/artemis-5.jpg',
+      '/images/photography/artemis-6.jpg',
+    ],
+    article: {
+      title: '—AWE-INSPIRING AND WONDER—',
+      date: 'April 1, 2026 — Titusville, FL',
+      paragraphs: [
+        'Over 117,000,000,000 people have lived on Earth throughout human history. Up to this moment, 24 have ever journeyed beyond the comfort and safety of our home. Today, four more humans — driven by interest and courage — started a journey to venture on a mission afforded to very few, an opportunity to further solidify an evolutionary step in human history: the ability to grow beyond our planet.',
+        'Gene Cernan of Apollo 17 called his mission "the end of the beginning" and challenged the next generation to carry the torch of human exploration out into the solar system. 53 years and 3 months later, the roaring flame of Artemis 2 climbed high into a deep blue sky to the cheer and elation of millions of people crowding the Florida coastline. Even as this program works to carry the legacy of Apollo, the vision of Artemis aims to be more ambitious and industrious than ever before.',
+        'Some things never change. Today\'s critics still lament such programs and efforts just the same as yesterday\'s pioneering research. There will always be the naysayers who say "we never have" or "we never could" that fail to appreciate the how\'s, when\'s, what\'s, who\'s, and where\'s that helped to make today possible, but the most timely critics are those who challenge the why. The work of thousands of men and women are not in the pursuit of a select few, but towards the betterment of all mankind which — in the right minds and hands — is a goal that we must always strive for.',
+        'We are the next generation. We stand on the shoulders of those who came before us, but who will the next generation from us look back to? Tomorrow\'s giants are only as strong as our youth\'s education today, which in the age of internet and digital livelihoods has been challenged like never before. It is imperative that today\'s youth has the resources to learn and grow stronger, with an emphasis on STEM education. Only through such efforts can we ensure the next generation can boldly go where no one has gone before.',
+      ],
+    },
+  },
+  {
     id: 'binos-bts',
     title: "Binos — BTS",
     year: 2025,
