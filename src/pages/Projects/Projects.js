@@ -691,17 +691,7 @@ export default function Projects() {
           >
             Websites
           </motion.h2>
-
-          <motion.div
-            className="websites-wip"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            <img src="/images/websites-wip.jpg" alt="Websites work in progress" className="websites-wip__img" />
-            <span className="websites-wip__label">Work in Progress</span>
-          </motion.div>
+              
         </div>
       </section>
 
