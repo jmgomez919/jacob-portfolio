@@ -58,24 +58,9 @@ export default function About() {
           <p className="about__bio-role">Digital Designer · Photographer · Film Collaborator</p>
 
           <p>
-            Born in New Jersey, I relocated to Florida in 2007, where I've continued to grow
-            both personally and creatively. I have a strong interest in traveling, film
-            analysis, video games, space exploration, and documenting meaningful moments with
-            my family — I'm also the oldest of four siblings.
+            I’m a graphic designer and visual storyteller based in Central Florida. I graduated from UCF in 2026 with a bachelor’s degree in Digital Media. Before that, I earned an associate’s degree in Digital Cinema and Television Production: a background that still shapes how I think about composition, mood, and narrative. My work spans graphic design for short films and music videos, social media content and management, photography, and photojournalism.
           </p>
-          <p>
-            I earned two Associate degrees in Digital Cinema and Television Production from
-            Seminole State College in 2022, and later graduated from the University of Central
-            Florida in 2026 with a Bachelor's degree in Digital Media, specializing in Web
-            Development. During my time at UCF, I served as the Marketing Director for
-            VolunteerUCF from August 2025 to May 2026, leading creative initiatives for one
-            of the university's largest student organizations.
-          </p>
-          <p>
-            I am driven by a desire to take on challenging projects that push me beyond my
-            comfort zone, allowing me to continuously expand my skills and perspective. I
-            value collaboration, enjoy helping others, and take pride in creating work that
-            makes a meaningful and lasting impact.
+            Outside of work, I’m into film analysis, video games, space exploration, and traveling. As the oldest of four siblings, I am usually the one documenting moments for my family. I’m drawn to projects that push me somewhere new, and I care most about doing work that’s collaborative and impactful.
           </p>
 
           <div className="about__quick-facts">
