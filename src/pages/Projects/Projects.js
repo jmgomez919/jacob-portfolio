@@ -15,7 +15,7 @@ const filmPosters = [
     role: 'BTS / Graphic Design',
     director: 'Written & Directed by Mandy White',
     description:
-      'Created using Photoshop for a hand-drawn aesthetic, with Blender used to render lighting effects so all characters and scenery were properly illuminated.',
+      'Created using Photoshop for a hand-drawn aesthetic. Blender was used to render lighting effects so all characters and scenery were properly illuminated.',
     tools: ['Photoshop', 'Blender'],
     img: '/images/poster-binos.png',
   },
@@ -26,7 +26,7 @@ const filmPosters = [
     role: 'BTS / Graphic Design',
     director: 'Written & Directed by Mandy White',
     description:
-      'Used a gradient tool in Photoshop to add a stylized effect to the film credits and craft a personalized movie rating.',
+      'Used Photoshop to apply a stylized gradient color palette to the film credit components over a raw photo, creating a marketing aesthetic that reflects the tone of the short film.',
     tools: ['Photoshop'],
     img: '/images/poster-chimera.png',
   },
@@ -37,7 +37,7 @@ const filmPosters = [
     role: 'Graphic Design',
     director: 'Starring Troy Thomas & Caelan Mandigo',
     description:
-      'Using Blender, arranged a stack of CRT-TV models and rendered screenshots from the film to create an image that reflects the tone of the story.',
+      'Using Blender, arranged a stack of vintage CRT-TV models and rendered film screenshots onto their screens, layering the frames into a single composition that visually echoes the story\'s theme of scattered, overlapping perspectives.',
     tools: ['Blender'],
     img: '/images/poster-television-tension.jpg',
   },
@@ -48,7 +48,7 @@ const filmPosters = [
     role: 'Graphic Design',
     director: 'Directed by Mandy White',
     description:
-      'Used Adobe Illustrator to individually trace each cast member\'s silhouette — arms, faces, clothing, jewelry, and hair — to achieve the blocky, pop-style aesthetic the director envisioned for her music video.',
+      'Starting with a raw cast photo, used Adobe Illustrator to individually trace each cast member\'s silhouette — arms, faces, clothing, jewelry, and hair — to achieve the blocky, pop-style aesthetic the director envisioned for her music video.',
     tools: ['Illustrator'],
     img: '/images/poster-call-me-up.jpg',
   },
