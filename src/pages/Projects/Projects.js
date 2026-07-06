@@ -369,7 +369,7 @@ function UCFCard({ expanded, onToggle }) {
           <div className="ucf-card__brand-copy">
             <h3 className="ucf-card__name">Volunteer UCF</h3>
             <p className="ucf-card__meta">
-              Marketing Director &amp; Graphic Design &nbsp;·&nbsp; Aug 2025 – May 2026
+              Marketing Director &amp; Graphic Design &nbsp;·&nbsp; 2025 - 2026 Acaemic Year
             </p>
             <p className="ucf-card__desc-text">
               Created event recaps and promotional graphics that captured the impact of
