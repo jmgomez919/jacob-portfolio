@@ -666,8 +666,7 @@ export default function Projects() {
                 images of volunteers and events over graphic-heavy cover slides. I employed specific art styles that reflected each
                 event and allowed each post to stand out from eachother. By utilizing strategic profile tags and UCF-specific hashtags,
                   each post felt more personal and reached a wider audience organically.
-                Across my tenure from Fall 2025 through Spring 2026, median viewership nearly doubled as well as a
-                  noticeable increase in audience engagement and overall exposure, spreading the word of VUCF's mission.
+                Across my tenure from Fall 2025 through Spring 2026, median viewership nearly doubled and the organization saw a noticeable increase in audience engagement and overall exposure, spreading the word of VUCF's mission.
               </p>
               <img
                 src="/images/vucf-viewership-graph.png"
@@ -676,22 +675,6 @@ export default function Projects() {
               />
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ── Websites ── */}
-      <section className="proj-section proj-section--alt">
-        <div className="proj-section__inner">
-          <motion.h2
-            className="section-heading"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            Websites
-          </motion.h2>
-              
         </div>
       </section>
 
