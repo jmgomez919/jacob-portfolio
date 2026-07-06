@@ -27,7 +27,6 @@ export default function About() {
           initial="hidden"
           animate="visible"
         >
-          <p className="about__eyebrow">Get to Know Me</p>
           <h1 className="about__title">About Me</h1>
         </motion.div>
       </section>
