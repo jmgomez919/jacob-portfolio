@@ -49,7 +49,7 @@ export default function Home() {
   const [panelOpen, setPanelOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrent(i => (i + 1) % slideshowImages.length), 8000);
+    const timer = setInterval(() => setCurrent(i => (i + 1) % slideshowImages.length), 4000);
     return () => clearInterval(timer);
   }, []);
 
