@@ -1,9 +1,8 @@
 import './Footer.css';
 
 const socialLinks = [
-  { label: 'Instagram', href: 'https://www.instagram.com/', img: '/images/instagram-beige-on-blue.jpg' },
-  { label: 'LinkedIn',  href: 'https://www.linkedin.com/',  img: '/images/linkedin-beige-on-blue.jpg'  },
-  { label: 'Email',     href: 'mailto:j.mgomez919@gmail.com', icon: '✉️' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jacob-gomez-b6ba10a6/', img: '/images/linkedin-beige-on-blue.jpg' },
+  { label: 'Email',    href: 'mailto:j.mgomez919@gmail.com', icon: '✉️' },
 ];
 
 export default function Footer() {
