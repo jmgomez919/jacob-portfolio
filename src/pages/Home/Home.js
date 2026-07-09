@@ -93,11 +93,6 @@ export default function Home() {
             producing content that’s both visually compelling and built to be seen. Wherever my work shows up, I bring the same commitment to getting it right.
 
           </p>
-          <div className="home__hero-cta">
-            <Link to="/projects" className="btn btn--primary">View My Work</Link>
-            <a href="mailto:j.mgomez919@gmail.com" className="btn btn--outline">Get in Touch</a>
-            <Link to="/about"    className="btn btn--outline home__hero-cta-full">Learn More About Me</Link>
-          </div>
         </motion.div>
 
         {/* Prime Photos tab — mobile only */}

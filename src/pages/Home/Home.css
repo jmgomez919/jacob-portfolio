@@ -105,22 +105,6 @@
   max-width: 500px;
 }
 
-.home__hero-cta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.home__hero-cta .btn:not(.home__hero-cta-full) {
-  flex: 1;
-  text-align: center;
-}
-
-.home__hero-cta-full {
-  flex-basis: 100%;
-  text-align: center;
-}
-
 /* Logo badge */
 .home__hero-badge { flex-shrink: 0; position: relative; z-index: 2; }
 
@@ -310,14 +294,6 @@
   .home__hero { padding: 2rem 1rem 1.5rem; }
 
   .home__hero-title { font-size: clamp(2.5rem, 11vw, 3.5rem); }
-
-  .home__hero-cta { flex-direction: column; }
-
-  .home__hero-cta .btn {
-    width: 100%;
-    text-align: center;
-    flex: none;
-  }
 }
 
 /* ── What I Do ── */
