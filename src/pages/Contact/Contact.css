@@ -1,0 +1,70 @@
+/* ── Page header ── */
+.contact__header {
+  background-color: var(--blue);
+  padding: 5rem 2.5rem 3.5rem;
+}
+
+.contact__header-inner { max-width: 1100px; margin: 0 auto; }
+
+.contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  text-transform: uppercase;
+  color: var(--beige);
+}
+
+/* ── Contact card ── */
+.contact__body {
+  display: flex;
+  justify-content: center;
+}
+
+.contact__card {
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact__intro {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-sec);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+.contact__detail:hover { opacity: 0.75; }
+
+.contact__detail-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+}
+
+.contact__detail-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--blue);
+}
+
+@media (max-width: 480px) {
+  .contact__header { padding: 3.5rem 1.5rem 2.5rem; }
+}
