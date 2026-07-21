@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  pageVariants, fadeUp, staggerContainer,
-  slideInLeft, viewportOnce,
-} from '../../utils/animations';
+import { pageVariants, slideInLeft } from '../../utils/animations';
 import './Home.css';
 
 // position: CSS object-position  e.g. '75% center', 'right top', '50% 30%'
@@ -36,13 +32,6 @@ function HeroSlideshow({ images, current }) {
     </div>
   );
 }
-
-const services = [
-  { img: '/images/what-i-do/graphic-design.png',   title: 'Graphic Design',    desc: 'Logos, brand identities, and print materials crafted since 2015.' },
-  { img: '/images/what-i-do/photography.png',       title: 'Photography',       desc: 'Portraits, events, and behind-the-scenes production coverage.' },
-  { img: '/images/what-i-do/photo-journalism.png',  title: 'Photo-Journalism',  desc: 'Documenting real moments and stories through compelling visual narratives.' },
-  { img: '/images/what-i-do/web-design.png',        title: 'Web Design',        desc: 'WordPress and React sites built for clients and personal projects.' },
-];
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -152,54 +141,6 @@ export default function Home() {
           </>
         )}
       </AnimatePresence>
-
-      {/* ── What I Do ── */}
-      <section className="home__services">
-        <div className="home__services-inner">
-          <motion.h2
-            className="section-heading section-heading--center"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            What I Do
-          </motion.h2>
-
-          <motion.div
-            className="home__services-grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            {services.map(({ img, title, desc }) => (
-              <motion.div
-                key={title}
-                className="home__service-card"
-                variants={fadeUp}
-                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 320, damping: 20 } }}
-              >
-                <div className="home__service-img-wrap">
-                  <img src={img} alt={title} className="home__service-img" />
-                </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className="home__services-cta"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            <Link to="/projects" className="btn btn--primary">Browse All Projects</Link>
-          </motion.div>
-        </div>
-      </section>
 
     </motion.div>
   );
