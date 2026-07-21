@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { pageVariants, slideInLeft } from '../../utils/animations';
 import './Home.css';
@@ -82,6 +83,8 @@ export default function Home() {
             producing content that’s both visually compelling and built to be seen. Wherever my work shows up, I bring the same commitment to getting it right.
 
           </p>
+
+          <Link to="/projects" className="btn btn--primary">Browse Projects</Link>
         </motion.div>
 
         {/* Prime Photos tab — mobile only */}
