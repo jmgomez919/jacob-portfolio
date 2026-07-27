@@ -671,6 +671,16 @@ export default function Projects() {
             Graphic Design Projects
           </motion.h2>
 
+          <motion.h3
+            className="section-subheading"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            Film Posters
+          </motion.h3>
+
           <PosterCarousel />
 
           <motion.h3

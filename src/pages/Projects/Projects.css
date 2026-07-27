@@ -186,7 +186,7 @@
 }
 
 .poster-card__title {
-  font-family: var(--font-display);
+  font-family: 'EB Garamond', var(--font-serif);
   font-size: 1.25rem;
   text-transform: uppercase;
   color: var(--black);
@@ -230,9 +230,11 @@
   margin: 3.5rem 0 1.5rem;
 }
 
+.section-subheading:first-of-type { margin-top: 0; }
+
 .logo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
 }
 
@@ -253,11 +255,11 @@
 }
 
 .logo-card__img-wrap {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: #fff;
 }
 
@@ -283,7 +285,7 @@
 }
 
 .logo-card__title {
-  font-family: var(--font-display);
+  font-family: 'EB Garamond', var(--font-serif);
   font-size: 1.1rem;
   text-transform: uppercase;
   color: var(--black);
