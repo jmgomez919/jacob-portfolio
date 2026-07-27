@@ -54,6 +54,23 @@ const filmPosters = [
   },
 ];
 
+const logos = [
+  {
+    id: 'highground',
+    title: 'HighGround Commercial Investments',
+    year: 2018,
+    tools: ['Photoshop'],
+    img: '/images/logo-highground.png',
+  },
+  {
+    id: 'mandywhitefilmz',
+    title: 'MandyWhiteFilmz',
+    year: 2025,
+    tools: ['Blender', 'Premiere Pro'],
+    img: '/images/logo-mandywhitefilmz.png',
+  },
+];
+
 const instagramPosts = [
   { id: 1, href: 'https://www.instagram.com/p/DV1BS49jt5W/', label: 'Spring Into Service 2026'        },
   { id: 2, href: 'https://www.instagram.com/p/DQsA9dXkRzq/', label: 'Committee Member Introductions'  },
@@ -318,6 +335,32 @@ function PosterCard({ poster }) {
         <p className="poster-card__desc">{poster.description}</p>
         <ul className="poster-card__tools">
           {poster.tools.map(t => <li key={t} className="poster-card__tool">{t}</li>)}
+        </ul>
+      </div>
+    </motion.article>
+  );
+}
+
+function LogoCard({ logo }) {
+  return (
+    <motion.article
+      className="logo-card"
+      variants={cardItem}
+      whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+    >
+      <div className="logo-card__img-wrap">
+        <img
+          src={logo.img}
+          alt={`${logo.title} logo`}
+          className="logo-card__img"
+        />
+      </div>
+
+      <div className="logo-card__body">
+        <span className="logo-card__year">{logo.year}</span>
+        <h3 className="logo-card__title">{logo.title}</h3>
+        <ul className="logo-card__tools">
+          {logo.tools.map(t => <li key={t} className="logo-card__tool">{t}</li>)}
         </ul>
       </div>
     </motion.article>
@@ -615,7 +658,7 @@ export default function Projects() {
         </motion.div>
       </section>
 
-      {/* ── Film Posters ── */}
+      {/* ── Graphic Design Projects ── */}
       <section className="proj-section proj-section--posters">
         <div className="proj-section__inner">
           <motion.h2
@@ -625,10 +668,32 @@ export default function Projects() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            Film Posters
+            Graphic Design Projects
           </motion.h2>
 
           <PosterCarousel />
+
+          <motion.h3
+            className="section-subheading"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            Logos
+          </motion.h3>
+
+          <motion.div
+            className="logo-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            {logos.map(logo => (
+              <LogoCard key={logo.id} logo={logo} />
+            ))}
+          </motion.div>
         </div>
       </section>
 
