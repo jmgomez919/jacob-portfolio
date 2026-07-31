@@ -17,7 +17,7 @@ const filmPosters = [
     description:
       'Created using Photoshop for a hand-drawn aesthetic. Blender was used to render lighting effects so all characters and scenery were properly illuminated.',
     tools: ['Photoshop', 'Blender'],
-    img: '/images/poster-binos.png',
+    img: '/images/poster-binos.jpg',
   },
   {
     id: 'chimera',
@@ -28,7 +28,7 @@ const filmPosters = [
     description:
       'Used Photoshop to apply a stylized gradient color palette to the film credit components over a raw photo, creating a marketing aesthetic that reflects the tone of the short film.',
     tools: ['Photoshop'],
-    img: '/images/poster-chimera.png',
+    img: '/images/poster-chimera.jpg',
   },
   {
     id: 'television-tension',
