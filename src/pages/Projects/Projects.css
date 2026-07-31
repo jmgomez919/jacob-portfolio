@@ -270,6 +270,21 @@
   display: block;
 }
 
+/* Animation cards — video fills the frame edge-to-edge instead of the
+   padded/white logo treatment */
+.logo-card__img-wrap--video {
+  padding: 0;
+  background-color: var(--dark, #111);
+}
+
+.logo-card__img-wrap--video .logo-card__img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+}
+
 .logo-card__body {
   padding: 1.1rem 1.25rem 1.25rem;
   display: flex;

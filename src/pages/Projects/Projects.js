@@ -71,6 +71,16 @@ const logos = [
   },
 ];
 
+const animations = [
+  {
+    id: 'mandywhitefilmz',
+    title: 'MandyWhiteFilmz',
+    year: 2025,
+    tools: ['Blender', 'Premiere Pro'],
+    video: '/videos/mandywhitefilmz-animation.mp4',
+  },
+];
+
 const instagramPosts = [
   { id: 1, href: 'https://www.instagram.com/p/DVmGUZkDqSr/', label: 'Yoga Fest'                 },
   { id: 2, href: 'https://www.instagram.com/p/DVjQ5WkDhYF/', label: 'Perch Pavillion'            },
@@ -363,6 +373,35 @@ function LogoCard({ logo }) {
         <h3 className="logo-card__title">{logo.title}</h3>
         <ul className="logo-card__tools">
           {logo.tools.map(t => <li key={t} className="logo-card__tool">{t}</li>)}
+        </ul>
+      </div>
+    </motion.article>
+  );
+}
+
+function AnimationCard({ animation }) {
+  return (
+    <motion.article
+      className="logo-card"
+      variants={cardItem}
+      whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+    >
+      <div className="logo-card__img-wrap logo-card__img-wrap--video">
+        <video
+          className="logo-card__img"
+          src={animation.video}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </div>
+
+      <div className="logo-card__body">
+        <span className="logo-card__year">{animation.year}</span>
+        <h3 className="logo-card__title">{animation.title}</h3>
+        <ul className="logo-card__tools">
+          {animation.tools.map(t => <li key={t} className="logo-card__tool">{t}</li>)}
         </ul>
       </div>
     </motion.article>
@@ -704,6 +743,28 @@ export default function Projects() {
           >
             {logos.map(logo => (
               <LogoCard key={logo.id} logo={logo} />
+            ))}
+          </motion.div>
+
+          <motion.h3
+            className="section-subheading"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            Animations
+          </motion.h3>
+
+          <motion.div
+            className="logo-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            {animations.map(animation => (
+              <AnimationCard key={animation.id} animation={animation} />
             ))}
           </motion.div>
         </div>
