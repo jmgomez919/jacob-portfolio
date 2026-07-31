@@ -72,12 +72,13 @@ const logos = [
 ];
 
 const instagramPosts = [
-  { id: 1, href: 'https://www.instagram.com/p/DV1BS49jt5W/', label: 'Spring Into Service 2026'        },
-  { id: 2, href: 'https://www.instagram.com/p/DQsA9dXkRzq/', label: 'Committee Member Introductions'  },
-  { id: 3, href: 'https://www.instagram.com/p/DV4e1ymjgAl/', label: 'Volunteer with SALT Outreach'    },
-  { id: 4, href: 'https://www.instagram.com/p/DRnN6QIjReP/', label: 'Dinner Knight Serving Families'  },
-  { id: 5, href: 'https://www.instagram.com/p/DP2MSK7jUZr/', label: 'Puppy Play 2025'                 },
-  { id: 6, href: 'https://www.instagram.com/p/DN3ocgvXBxU/', label: 'Pegasus Palooza 2025'            },
+  { id: 1, href: 'https://www.instagram.com/p/DVmGUZkDqSr/', label: 'Yoga Fest'                 },
+  { id: 2, href: 'https://www.instagram.com/p/DVjQ5WkDhYF/', label: 'Perch Pavillion'            },
+  { id: 3, href: 'https://www.instagram.com/p/DUCDHLqjeiL/', label: 'ACEing Autism'              },
+  { id: 4, href: 'https://www.instagram.com/p/DPg9Vg1jXE_/', label: 'Adopt-A-Road'                },
+  { id: 5, href: 'https://www.instagram.com/p/DSGeUBBDeqJ/', label: 'Protecting The Environment' },
+  { id: 6, href: 'https://www.instagram.com/p/DP3zKeLjvCG/', label: 'Trunk Or Treat'              },
+  { id: 7, href: 'https://www.instagram.com/p/DQsA9dXkRzq/', label: 'VUCF Committee Members'      },
 ];
 
 
