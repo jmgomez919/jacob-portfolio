@@ -78,7 +78,8 @@ const instagramPosts = [
   { id: 4, href: 'https://www.instagram.com/p/DPg9Vg1jXE_/', label: 'Adopt-A-Road'                },
   { id: 5, href: 'https://www.instagram.com/p/DSGeUBBDeqJ/', label: 'Protecting The Environment' },
   { id: 6, href: 'https://www.instagram.com/p/DP3zKeLjvCG/', label: 'Trunk Or Treat'              },
-  { id: 7, href: 'https://www.instagram.com/p/DQsA9dXkRzq/', label: 'VUCF Committee Members'      },
+  { id: 7, href: 'https://www.instagram.com/p/DQZU3jSjjJu/', label: 'Knights Give Back 2025'       },
+  { id: 8, href: 'https://www.instagram.com/p/DQsA9dXkRzq/', label: 'VUCF Committee Members'      },
 ];
 
 
