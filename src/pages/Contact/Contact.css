@@ -20,7 +20,7 @@
 }
 
 .contact__card {
-  max-width: 560px;
+  max-width: 600px;
   width: 100%;
   text-align: center;
 }
@@ -65,7 +65,7 @@
   display: block;
 }
 
-/* Font sizes scale with the card's width (min(560px, 100vw - 64px)) so each
+/* Font sizes scale with the card's width (min(600px, 100vw - 64px)) so each
    value's rendered width tracks the paragraph's width at any screen size. */
 .contact__detail-value--phone { font-size: clamp(1.6rem, 11.14vw - 7.13px, 3.9rem); }
 .contact__detail-value--email { font-size: clamp(1rem, 6.09vw - 3.9px, 2.13rem); }
