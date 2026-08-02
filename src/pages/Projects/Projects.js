@@ -64,7 +64,7 @@ const logos = [
   },
   {
     id: 'mandywhitefilmz',
-    title: 'MandyWhiteFilmz',
+    title: 'Mandy.W.Filmz',
     year: 2025,
     tools: ['Blender', 'Premiere Pro'],
     img: '/images/logo-mandywhitefilmz.png',
@@ -74,7 +74,7 @@ const logos = [
 const animations = [
   {
     id: 'mandywhitefilmz',
-    title: 'MandyWhiteFilmz',
+    title: 'Mandy.W.Filmz',
     year: 2025,
     tools: ['Blender', 'Premiere Pro'],
     video: '/videos/mandywhitefilmz-animation.mp4',

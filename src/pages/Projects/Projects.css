@@ -271,8 +271,11 @@
 }
 
 /* Animation cards — video fills the frame edge-to-edge instead of the
-   padded/white logo treatment */
+   padded/white logo treatment. Square aspect ratio crops out the
+   pillarboxing around the centered square logo animation in the
+   source 16:9 video. */
 .logo-card__img-wrap--video {
+  aspect-ratio: 1 / 1;
   padding: 0;
   background-color: var(--dark, #111);
 }
