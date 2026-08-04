@@ -694,7 +694,7 @@ export default function Projects() {
         >
           <h1 className="projects__title">Projects</h1>
           <p className="projects__subtitle">
-            Film poster designs, social media marketing, photography, and journalism — a curated selection of my work.
+            Graphic designs, social media marketing, photography, and photojournalism — a curated selection of my work.
           </p>
         </motion.div>
       </section>
