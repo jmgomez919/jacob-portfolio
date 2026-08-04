@@ -287,7 +287,7 @@ const photoCollections = [
 
 /* ── Sub-components ───────────────────────────────────────────────── */
 
-function PosterCarousel() {
+function PosterCarousel({ onSelect }) {
   const trackRef = useRef(null);
 
   const scroll = (dir) => {
@@ -312,7 +312,7 @@ function PosterCarousel() {
         <div className="poster-carousel__track" ref={trackRef}>
           {filmPosters.map(poster => (
             <div key={poster.id} className="poster-carousel__item">
-              <PosterCard poster={poster} />
+              <PosterCard poster={poster} onClick={() => onSelect(poster)} />
             </div>
           ))}
         </div>
@@ -323,12 +323,13 @@ function PosterCarousel() {
   );
 }
 
-function PosterCard({ poster }) {
+function PosterCard({ poster, onClick }) {
   return (
     <motion.article
       className="poster-card"
       variants={cardItem}
       whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+      onClick={onClick}
     >
       <div className="poster-card__img-wrap">
         <img
@@ -353,12 +354,13 @@ function PosterCard({ poster }) {
   );
 }
 
-function LogoCard({ logo }) {
+function LogoCard({ logo, onClick }) {
   return (
     <motion.article
       className="logo-card"
       variants={cardItem}
       whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+      onClick={onClick}
     >
       <div className="logo-card__img-wrap">
         <img
@@ -379,12 +381,13 @@ function LogoCard({ logo }) {
   );
 }
 
-function AnimationCard({ animation }) {
+function AnimationCard({ animation, onClick }) {
   return (
     <motion.article
       className="logo-card"
       variants={cardItem}
       whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22 } }}
+      onClick={onClick}
     >
       <div className="logo-card__img-wrap logo-card__img-wrap--video">
         <video
@@ -405,6 +408,157 @@ function AnimationCard({ animation }) {
         </ul>
       </div>
     </motion.article>
+  );
+}
+
+/* ── Expanded project overlay (posters, logos, animations) ─────────── */
+
+function ProjectOverlay({ item, onClose }) {
+  const { type, data } = item;
+  const zoomable = type !== 'animation';
+  const [zoomed, setZoomed] = useState(false);
+  const [zoomOrigin, setZoomOrigin] = useState('50% 50%');
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState(null);
+  const dragRef = useRef({ startX: 0, startY: 0, startPanX: 0, startPanY: 0, moved: false });
+  const mediaRef = useRef(null);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  // Trackpad two-finger panning — attached natively so preventDefault
+  // reliably stops the modal from scrolling instead of the image panning.
+  useEffect(() => {
+    const el = mediaRef.current;
+    if (!el || !zoomed) return;
+    const onWheel = (e) => {
+      e.preventDefault();
+      setPan(p => ({ x: p.x - e.deltaX, y: p.y - e.deltaY }));
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [zoomed]);
+
+  const handleMediaLoad = (e) => {
+    const el = e.target;
+    const w = el.naturalWidth || el.videoWidth;
+    const h = el.naturalHeight || el.videoHeight;
+    if (w && h) setAspectRatio(`${w} / ${h}`);
+  };
+
+  const handleMediaClick = (e) => {
+    if (!zoomable) return;
+    if (dragRef.current.moved) { dragRef.current.moved = false; return; }
+    if (!zoomed) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      setZoomOrigin(`${x}% ${y}%`);
+    }
+    setPan({ x: 0, y: 0 });
+    setZoomed(z => !z);
+  };
+
+  const handlePointerDown = (e) => {
+    if (!zoomable || !zoomed) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragRef.current = { startX: e.clientX, startY: e.clientY, startPanX: pan.x, startPanY: pan.y, moved: false };
+    setDragging(true);
+  };
+
+  const handlePointerMove = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const dy = e.clientY - dragRef.current.startY;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) dragRef.current.moved = true;
+    setPan({ x: dragRef.current.startPanX + dx, y: dragRef.current.startPanY + dy });
+  };
+
+  const handlePointerUp = (e) => {
+    if (!dragging) return;
+    e.currentTarget.releasePointerCapture(e.pointerId);
+    setDragging(false);
+  };
+
+  return (
+    <motion.div
+      className="project-overlay-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="project-overlay-window"
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.96 }}
+        transition={{ duration: 0.25 }}
+        onClick={e => e.stopPropagation()}
+      >
+        <button className="project-overlay-close" onClick={onClose} aria-label="Close">✕</button>
+
+        <div
+          className={`project-overlay-media${type === 'logo' ? ' project-overlay-media--logo' : ''}`}
+          style={aspectRatio ? { aspectRatio } : undefined}
+        >
+          {type === 'animation' ? (
+            <video
+              className="project-overlay-media__el"
+              src={data.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              onLoadedMetadata={handleMediaLoad}
+            />
+          ) : (
+            <img
+              ref={mediaRef}
+              className={`project-overlay-media__el project-overlay-media__el--zoomable${zoomed ? ' project-overlay-media__el--zoomed' : ''}${dragging ? ' project-overlay-media__el--dragging' : ''}`}
+              src={data.img}
+              alt={data.title}
+              draggable={false}
+              onLoad={handleMediaLoad}
+              onClick={handleMediaClick}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              style={zoomed ? {
+                transformOrigin: zoomOrigin,
+                transform: `translate(${pan.x}px, ${pan.y}px) scale(2)`,
+              } : undefined}
+            />
+          )}
+        </div>
+
+        <div className="project-overlay-body">
+          <div className="project-overlay-row">
+            <span className="project-overlay-year">{data.year}</span>
+            {data.role && <span className="project-overlay-role-badge">{data.role}</span>}
+          </div>
+          <h3 className="project-overlay-title">{data.title}</h3>
+          {data.director && <p className="project-overlay-director">{data.director}</p>}
+          {data.description && <p className="project-overlay-desc">{data.description}</p>}
+          {data.tools && (
+            <ul className="project-overlay-tools">
+              {data.tools.map(t => <li key={t} className="project-overlay-tool">{t}</li>)}
+            </ul>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -674,6 +828,7 @@ function Lightbox({ collection, onClose }) {
 export default function Projects() {
   const [ucfExpanded, setUcfExpanded] = useState(false);
   const [lightbox, setLightbox]       = useState(null);
+  const [overlayItem, setOverlayItem] = useState(null);
 
   return (
     <>
@@ -722,7 +877,7 @@ export default function Projects() {
             Film Posters
           </motion.h3>
 
-          <PosterCarousel />
+          <PosterCarousel onSelect={(poster) => setOverlayItem({ type: 'poster', data: poster })} />
 
           <motion.h3
             className="section-subheading"
@@ -742,7 +897,7 @@ export default function Projects() {
             viewport={viewportOnce}
           >
             {logos.map(logo => (
-              <LogoCard key={logo.id} logo={logo} />
+              <LogoCard key={logo.id} logo={logo} onClick={() => setOverlayItem({ type: 'logo', data: logo })} />
             ))}
           </motion.div>
 
@@ -764,7 +919,7 @@ export default function Projects() {
             viewport={viewportOnce}
           >
             {animations.map(animation => (
-              <AnimationCard key={animation.id} animation={animation} />
+              <AnimationCard key={animation.id} animation={animation} onClick={() => setOverlayItem({ type: 'animation', data: animation })} />
             ))}
           </motion.div>
         </div>
@@ -847,6 +1002,12 @@ export default function Projects() {
     <AnimatePresence>
       {lightbox && (
         <Lightbox key="lightbox" collection={lightbox} onClose={() => setLightbox(null)} />
+      )}
+    </AnimatePresence>
+
+    <AnimatePresence>
+      {overlayItem && (
+        <ProjectOverlay key="project-overlay" item={overlayItem} onClose={() => setOverlayItem(null)} />
       )}
     </AnimatePresence>
     </>
