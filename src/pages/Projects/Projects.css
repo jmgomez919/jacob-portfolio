@@ -1002,6 +1002,7 @@
   color: rgba(245, 240, 231, 0.82);
   line-height: 1.8;
   margin-bottom: 1rem;
+  text-align: justify;
 }
 
 .lightbox-img {

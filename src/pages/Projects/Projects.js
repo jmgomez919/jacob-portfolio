@@ -137,7 +137,7 @@ const photoCollections = [
       '/images/photography/artemis-6.jpg',
     ],
     article: {
-      title: '—AWE-INSPIRING AND WONDER—',
+      title: '—FEARLESS and TRIUMPHANT—',
       date: 'April 1, 2026 — Titusville, FL',
       paragraphs: [
         'Over 117,000,000,000 people have lived on Earth throughout human history. Up to this moment, 24 have ever journeyed beyond the comfort and safety of our home. Today, four more humans — driven by interest and courage — started a journey to venture on a mission afforded to very few, an opportunity to further solidify an evolutionary step in human history: the ability to grow beyond our planet.',
