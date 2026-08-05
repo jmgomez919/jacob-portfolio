@@ -60,15 +60,19 @@
 }
 
 .contact__detail-value {
-  font-family: var(--font-display);
+  font-family: 'EB Garamond', var(--font-serif);
+  font-weight: 700;
   color: var(--blue);
   display: block;
+  white-space: nowrap;
 }
 
 /* Font sizes scale with the card's width (min(600px, 100vw - 64px)) so each
-   value's rendered width tracks the paragraph's width at any screen size. */
-.contact__detail-value--phone { font-size: clamp(1.6rem, 11.14vw - 7.13px, 3.9rem); }
-.contact__detail-value--email { font-size: clamp(1rem, 6.09vw - 3.9px, 2.13rem); }
+   value's rendered width tracks the paragraph's width at any screen size.
+   Targets ~97% of that width as a safety margin against rounding/kerning
+   differences that could otherwise force a wrap. */
+.contact__detail-value--phone { font-size: clamp(1.6rem, 15.87vw - 10.16px, 5.93rem); }
+.contact__detail-value--email { font-size: clamp(1rem, 8.85vw - 5.66px, 3.32rem); }
 
 @media (max-width: 480px) {
   .contact__header { padding: 3.5rem 1.5rem 2.5rem; }
