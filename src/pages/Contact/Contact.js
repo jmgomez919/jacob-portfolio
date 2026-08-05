@@ -29,8 +29,6 @@ export default function Contact() {
         >
           <p className="contact__intro">
             I'm always open to new opportunities, collaborations, and creative projects.
-            <br />
-            The best way to reach me is by email — I'd love to hear from you.
           </p>
 
           <div className="contact__details">
