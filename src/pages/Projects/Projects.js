@@ -67,16 +67,16 @@ const logos = [
 
 const animations = [
   {
-    id: 'mandywhitefilmz',
-    title: 'Mandy.W.Filmz',
-    tools: ['Blender', 'Premiere Pro'],
-    video: '/videos/mandywhitefilmz-animation.mp4',
-  },
-  {
     id: 'highground',
     title: 'HIGHGROUND',
     tools: ['Premiere Pro', 'After Effects'],
     video: '/videos/highground-animation.mp4',
+  },
+  {
+    id: 'mandywhitefilmz',
+    title: 'Mandy.W.Filmz',
+    tools: ['Blender', 'Premiere Pro'],
+    video: '/videos/mandywhitefilmz-animation.mp4',
   },
 ];
 
