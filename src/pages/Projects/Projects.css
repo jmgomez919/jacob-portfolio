@@ -167,12 +167,6 @@
   gap: 0.5rem;
 }
 
-.poster-card__year {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  color: var(--text-muted);
-}
-
 .poster-card__role-badge {
   font-family: var(--font-sans);
   font-size: 0.64rem;
@@ -295,12 +289,6 @@
   flex-direction: column;
   gap: 0.4rem;
   flex: 1;
-}
-
-.logo-card__year {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  color: var(--text-muted);
 }
 
 .logo-card__title {
@@ -1209,12 +1197,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-}
-
-.project-overlay-year {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  color: var(--text-muted);
 }
 
 .project-overlay-role-badge {

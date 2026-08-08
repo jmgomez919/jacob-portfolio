@@ -11,7 +11,6 @@ const filmPosters = [
   {
     id: 'binos',
     title: "Bino's",
-    year: 2025,
     role: 'BTS / Graphic Design',
     director: 'Written & Directed by Mandy White',
     description:
@@ -22,7 +21,6 @@ const filmPosters = [
   {
     id: 'chimera',
     title: 'Chimera',
-    year: 2025,
     role: 'BTS / Graphic Design',
     director: 'Written & Directed by Mandy White',
     description:
@@ -33,7 +31,6 @@ const filmPosters = [
   {
     id: 'television-tension',
     title: 'Television Tension',
-    year: 2024,
     role: 'Graphic Design',
     director: 'Starring Troy Thomas & Caelan Mandigo',
     description:
@@ -44,7 +41,6 @@ const filmPosters = [
   {
     id: 'call-me-up',
     title: 'Call Me Up (Thru Tha Grapevine)',
-    year: 2026,
     role: 'Graphic Design',
     director: 'Directed by Mandy White',
     description:
@@ -58,14 +54,12 @@ const logos = [
   {
     id: 'highground',
     title: 'HighGround Commercial Investments',
-    year: 2018,
     tools: ['Photoshop'],
     img: '/images/logo-highground.png',
   },
   {
     id: 'mandywhitefilmz',
     title: 'Mandy.W.Filmz',
-    year: 2025,
     tools: ['Blender', 'Premiere Pro'],
     img: '/images/logo-mandywhitefilmz.png',
   },
@@ -75,9 +69,14 @@ const animations = [
   {
     id: 'mandywhitefilmz',
     title: 'Mandy.W.Filmz',
-    year: 2025,
     tools: ['Blender', 'Premiere Pro'],
     video: '/videos/mandywhitefilmz-animation.mp4',
+  },
+  {
+    id: 'highground',
+    title: 'HIGHGROUND',
+    tools: ['Premiere Pro', 'After Effects'],
+    video: '/videos/highground-animation.mp4',
   },
 ];
 
@@ -341,7 +340,6 @@ function PosterCard({ poster, onClick }) {
 
       <div className="poster-card__body">
         <div className="poster-card__row">
-          <span className="poster-card__year">{poster.year}</span>
           <span className="poster-card__role-badge">{poster.role}</span>
         </div>
         <h3 className="poster-card__title">{poster.title}</h3>
@@ -371,7 +369,6 @@ function LogoCard({ logo, onClick }) {
       </div>
 
       <div className="logo-card__body">
-        <span className="logo-card__year">{logo.year}</span>
         <h3 className="logo-card__title">{logo.title}</h3>
         <ul className="logo-card__tools">
           {logo.tools.map(t => <li key={t} className="logo-card__tool">{t}</li>)}
@@ -401,7 +398,6 @@ function AnimationCard({ animation, onClick }) {
       </div>
 
       <div className="logo-card__body">
-        <span className="logo-card__year">{animation.year}</span>
         <h3 className="logo-card__title">{animation.title}</h3>
         <ul className="logo-card__tools">
           {animation.tools.map(t => <li key={t} className="logo-card__tool">{t}</li>)}
@@ -544,10 +540,11 @@ function ProjectOverlay({ item, onClose }) {
         </div>
 
         <div className="project-overlay-body">
-          <div className="project-overlay-row">
-            <span className="project-overlay-year">{data.year}</span>
-            {data.role && <span className="project-overlay-role-badge">{data.role}</span>}
-          </div>
+          {data.role && (
+            <div className="project-overlay-row">
+              <span className="project-overlay-role-badge">{data.role}</span>
+            </div>
+          )}
           <h3 className="project-overlay-title">{data.title}</h3>
           {data.director && <p className="project-overlay-director">{data.director}</p>}
           {data.description && <p className="project-overlay-desc">{data.description}</p>}
