@@ -231,7 +231,6 @@ const photoCollections = [
       '/images/photography/professional-8.jpg',
       '/images/photography/professional-9.jpg',
       '/images/photography/professional-10.jpg',
-      '/images/photography/professional-12.jpg',
       '/images/photography/professional-13.jpg',
       '/images/photography/professional-14.jpg',
       '/images/photography/professional-15.jpg',
