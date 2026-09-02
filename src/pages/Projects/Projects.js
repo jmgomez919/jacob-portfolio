@@ -126,7 +126,7 @@ const photoCollections = [
     title: 'ARTEMIS II LAUNCH',
     year: 2026,
     cover: '/images/photography/artemis-1.jpg',
-    desc: 'On-the-ground photo-journalism from the Artemis II launch at Kennedy Space Center — documenting the crowd, the fire of liftoff, and humanity\'s return to the Moon.',
+    desc: 'On-the-ground photo-journalism from the Artemis II launch at Kennedy Space Center — documenting the crowd, the power of liftoff, and humanity\'s return to the Moon.',
     photos: [
       '/images/photography/artemis-1.jpg',
       '/images/photography/artemis-2.jpg',
