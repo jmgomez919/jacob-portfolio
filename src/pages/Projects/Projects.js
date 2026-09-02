@@ -977,7 +977,7 @@ export default function Projects() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            Photography
+            Photography & Photojournalism
           </motion.h2>
 
           <motion.div
