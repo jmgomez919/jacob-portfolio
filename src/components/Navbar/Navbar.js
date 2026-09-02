@@ -46,7 +46,6 @@ export default function Navbar() {
           alt="JG919 logo"
           className="navbar__logo-img"
         />
-        <span className="navbar__name">@JAKUB_919</span>
       </NavLink>
 
       <button
