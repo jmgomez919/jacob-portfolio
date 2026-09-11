@@ -63,6 +63,12 @@ const logos = [
     tools: ['Blender', 'Premiere Pro'],
     img: '/images/logo-mandywhitefilmz.png',
   },
+  {
+    id: 'sally-veterinary',
+    title: 'Sally Veterinary Services',
+    tools: ['Illustrator', 'Canva'],
+    img: '/images/logo-sally-veterinary.png',
+  },
 ];
 
 const animations = [
