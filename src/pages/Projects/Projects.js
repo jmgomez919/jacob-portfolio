@@ -291,7 +291,7 @@ const photoCollections = [
 
 /* ── Sub-components ───────────────────────────────────────────────── */
 
-function PosterCarousel({ onSelect }) {
+function Carousel({ items, renderItem }) {
   const trackRef = useRef(null);
 
   const scroll = (dir) => {
@@ -304,24 +304,24 @@ function PosterCarousel({ onSelect }) {
 
   return (
     <motion.div
-      className="poster-carousel"
+      className="media-carousel"
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
     >
-      <div className="poster-carousel__stage">
-        <button className="poster-carousel__arrow" onClick={() => scroll(-1)} aria-label="Previous">‹</button>
+      <div className="media-carousel__stage">
+        <button className="media-carousel__arrow" onClick={() => scroll(-1)} aria-label="Previous">‹</button>
 
-        <div className="poster-carousel__track" ref={trackRef}>
-          {filmPosters.map(poster => (
-            <div key={poster.id} className="poster-carousel__item">
-              <PosterCard poster={poster} onClick={() => onSelect(poster)} />
+        <div className="media-carousel__track" ref={trackRef}>
+          {items.map(item => (
+            <div key={item.id} className="media-carousel__item">
+              {renderItem(item)}
             </div>
           ))}
         </div>
 
-        <button className="poster-carousel__arrow" onClick={() => scroll(1)} aria-label="Next">›</button>
+        <button className="media-carousel__arrow" onClick={() => scroll(1)} aria-label="Next">›</button>
       </div>
     </motion.div>
   );
@@ -879,7 +879,12 @@ export default function Projects() {
             Film Posters
           </motion.h3>
 
-          <PosterCarousel onSelect={(poster) => setOverlayItem({ type: 'poster', data: poster })} />
+          <Carousel
+            items={filmPosters}
+            renderItem={(poster) => (
+              <PosterCard poster={poster} onClick={() => setOverlayItem({ type: 'poster', data: poster })} />
+            )}
+          />
 
           <motion.h3
             className="section-subheading"
@@ -891,17 +896,12 @@ export default function Projects() {
             Logos
           </motion.h3>
 
-          <motion.div
-            className="logo-grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
-            {logos.map(logo => (
-              <LogoCard key={logo.id} logo={logo} onClick={() => setOverlayItem({ type: 'logo', data: logo })} />
-            ))}
-          </motion.div>
+          <Carousel
+            items={logos}
+            renderItem={(logo) => (
+              <LogoCard logo={logo} onClick={() => setOverlayItem({ type: 'logo', data: logo })} />
+            )}
+          />
 
           <motion.h3
             className="section-subheading"
