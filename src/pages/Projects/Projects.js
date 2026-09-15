@@ -69,6 +69,12 @@ const logos = [
     tools: ['Illustrator', 'Canva'],
     img: '/images/logo-sally-veterinary.png',
   },
+  {
+    id: 'cny-howlers',
+    title: 'Central N.Y. Howlers',
+    tools: ['Illustrator', 'Photoshop', 'Canva'],
+    img: '/images/logo-cny-howlers.png',
+  },
 ];
 
 const animations = [
