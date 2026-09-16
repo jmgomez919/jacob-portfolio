@@ -9,6 +9,15 @@ import './Projects.css';
 
 const filmPosters = [
   {
+    id: 'cny-howlers-schedule',
+    title: 'Central N.Y. Howlers Football Schedule',
+    role: 'Graphic Design',
+    description:
+      'Designed the season schedule poster for the Central N.Y. Howlers football team using Illustrator and Canva, pairing a stadium action shot with a clean matchup grid and QR code for ticketing.',
+    tools: ['Illustrator', 'Canva'],
+    img: '/images/poster-cny-howlers-schedule.jpg',
+  },
+  {
     id: 'binos',
     title: "Bino's",
     role: 'BTS / Graphic Design',
@@ -882,7 +891,7 @@ export default function Projects() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            Film Posters
+            Posters
           </motion.h3>
 
           <Carousel
